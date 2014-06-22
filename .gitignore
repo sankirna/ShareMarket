@@ -1,0 +1,14 @@
+ShareMarket.BusinessLogic/bin/
+ShareMarket.BusinessLogic/obj/
+ShareMarket.Code/obj/
+ShareMarket.Core/obj/
+ShareMarket.Core/bin/
+ShareMarket.DataModel/bin/
+ShareMarket.DataModel/obj/
+ShareMarket.Utility/bin/
+ShareMarket.Utility/obj/
+ShareMarket.Web/Areas/Admin/Content/Upload/
+ShareMarket.Web/bin/
+ShareMarket.Web/obj/
+ShareMarket.Model/obj/
+ShareMarket.Model/bin/
