@@ -1,4 +1,0 @@
-E:\Temp Project\ShareMarket\Source\ShareMarket.Model\bin\Debug\ShareMarket.Model.dll
-E:\Temp Project\ShareMarket\Source\ShareMarket.Model\bin\Debug\ShareMarket.Model.pdb
-E:\Temp Project\ShareMarket\Source\ShareMarket.Model\obj\Debug\ShareMarket.Model.dll
-E:\Temp Project\ShareMarket\Source\ShareMarket.Model\obj\Debug\ShareMarket.Model.pdb
