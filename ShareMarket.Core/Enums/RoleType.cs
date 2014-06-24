@@ -9,7 +9,7 @@ namespace ShareMarket.Core.Enums
     public enum RoleType
     {
         Admin = 1,
-        Advisor = 2,
+        Trader = 2,
         Customer = 3,
     }
 }

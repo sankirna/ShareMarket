@@ -9,18 +9,14 @@ using System.Threading.Tasks;
 namespace ShareMarket.Core
 {
     [Table("webpages_UsersInRoles")]
-    public class UsersRole
+    public class UsersRole : BaseEntityId
     {
-        [Key]
-        public int Id { get; set; }
-
-
-        [ForeignKey("UserProfile")]
         public int UserId { get; set; }
+        [ForeignKey("UserId")]
         public virtual UserProfile UserProfile { get; set; }
 
-        [ForeignKey("Roles")]
         public int RoleId { get; set; }
+        [ForeignKey("RoleId")]
         public virtual Roles Roles { get; set; }
     }
 }

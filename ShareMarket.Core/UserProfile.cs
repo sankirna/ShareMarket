@@ -5,13 +5,16 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ShareMarket.Core.Enums;
 
 namespace ShareMarket.Core
 {
     [Table("UserProfile")]
-    public class UserProfile : BaseEntity
+    public class UserProfile : BaseEntityId
     {
         public string UserName { get; set; }
+
+        public UserType UserType { get; set; }
 
         public virtual Membership Membership { get; set; }
 

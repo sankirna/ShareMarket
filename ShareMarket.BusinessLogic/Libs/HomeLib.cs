@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Autofac;
 using ShareMarket.BusinessLogic.Helpers;
+using ShareMarket.Core.Enums;
 
 namespace ShareMarket.BusinessLogic.Libs
 {
@@ -44,12 +45,15 @@ namespace ShareMarket.BusinessLogic.Libs
             using (IWebSecurity webSecurity = _context.Resolve<IWebSecurity>())
             {
                 // Create user using web security
-                string userName = "sankirnaRana" + Guid.NewGuid();
-                webSecurity.CreateUserAndAccount(userName, "test#1234");
+                string userName = "SankirnaRana" + Guid.NewGuid();
+                webSecurity.CreateUserAndAccount(userName, "test#1234", new
+                {
+                    UserType = UserType.Admin
+                }, requireConfirmationToken: true);
 
                 using (IRole _role = _context.Resolve<IRole>())
                 {
-                    _role.AddUserToRole(userName, "Admin");
+                    _role.AddUserToRole(userName,RoleType.Admin.ToString());
                     return true;
                 }
 

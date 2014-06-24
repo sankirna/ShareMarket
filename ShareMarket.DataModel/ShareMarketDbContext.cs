@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Data.Entity;
-using System.Data.Entity.ModelConfiguration;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.Entity;
 using ShareMarket.Core;
 
 
@@ -34,6 +26,8 @@ namespace ShareMarket.DataAccess
         public DbSet<Roles> Roleses { get; set; }
         public DbSet<UsersRole> UsersRoles { get; set; }
 
+        public DbSet<Trader> Traders  { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             ////dynamically load all configuration
@@ -49,7 +43,7 @@ namespace ShareMarket.DataAccess
             ////...or do it manually below. For example,
             ////modelBuilder.Configurations.Add(new LanguageMap());
 
-            //base.OnModelCreating(modelBuilder);
+            base.OnModelCreating(modelBuilder);
 
           
         }
