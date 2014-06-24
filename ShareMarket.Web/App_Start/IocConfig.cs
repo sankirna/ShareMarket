@@ -4,13 +4,14 @@ using System.Web.Http;
 using System.Web.Mvc;
 using Autofac;
 using Autofac.Integration.Mvc;
-
+using ShareMarket.BusinessLogic.Helpers;
 using ShareMarket.BusinessLogic.Libs;
 using ShareMarket.BusinessLogic.Repository;
 using ShareMarket.DataAccess;
 using ShareMarket.DataAccess.Repository;
 using ShareMarket.Utility.Utilities;
 using ShareMarket.Web.Areas.Admin.Controllers;
+using ShareMarket.Web.Helpers;
 
 namespace ShareMarket.Web
 {
@@ -34,9 +35,9 @@ namespace ShareMarket.Web
             // Register other dependencies.
             containerBuilder.RegisterType<ShareMarketDbContext>().As<DbContext>().InstancePerDependency();
             containerBuilder.RegisterGeneric(typeof(DataRepository<>)).As(typeof(IDataRepository<>)).InstancePerDependency();
-            //containerBuilder.RegisterType<WebSecurityWrapper>().As<IWebSecurity>();
-            //containerBuilder.RegisterType<RoleWrapper>().As<IRole>();
-            //containerBuilder.RegisterType<RolePrincipalWrapper>().As<IRolePrincipal>();
+            containerBuilder.RegisterType<WebSecurityWrapper>().As<IWebSecurity>();
+            containerBuilder.RegisterType<RoleWrapper>().As<IRole>();
+            containerBuilder.RegisterType<RolePrincipalWrapper>().As<IRolePrincipal>();
             //containerBuilder.RegisterType<AppSettingsHelper>().As<IAppSettingsHelper>();
 
             IContainer container = containerBuilder.Build();

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Autofac;
+using ShareMarket.BusinessLogic.Helpers;
 
 namespace ShareMarket.BusinessLogic.Libs
 {
@@ -31,7 +32,33 @@ namespace ShareMarket.BusinessLogic.Libs
 
         #region "Public Member(s)"
 
-       
+        /// <summary>
+        /// Create New User Web Security
+        /// </summary>
+        /// <param name="userAccount">Registration parameter and company user </param>
+        /// <param name="contactId">contact id which user mapped </param>
+        /// <param name="role">role under user exits</param>
+        /// <returns>true/false</returns>
+        public bool CreateUser()
+        {
+            using (IWebSecurity webSecurity = _context.Resolve<IWebSecurity>())
+            {
+                // Create user using web security
+                string userName = "sankirnaRana" + Guid.NewGuid();
+                webSecurity.CreateUserAndAccount(userName, "test#1234");
+
+                using (IRole _role = _context.Resolve<IRole>())
+                {
+                    _role.AddUserToRole(userName, "Admin");
+                    return true;
+                }
+
+                // Step 1: Add role in current user
+                //MapUserInRole(userAccount.UserName, role);
+                return true;
+            }
+        }
+
 
         #endregion
 

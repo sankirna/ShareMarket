@@ -1,13 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data.Entity;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
+using Autofac;
 using MobileSurvey.Utils.Enum;
+using ShareMarket.BusinessLogic.Libs;
 using ShareMarket.Core;
+using ShareMarket.Core.Enums;
 using ShareMarket.DataAccess;
 
 using ShareMarket.Utility.Utilities;
@@ -20,39 +24,29 @@ namespace ShareMarket.Web
     {
         public static void ConfigureDataBase()
         {
-         //   ShareMarketDbContext goByMobilePortalDbContext = new ShareMarketDbContext();
-         //   goByMobilePortalDbContext.Database.CreateIfNotExists();
-
-            //using (var ctx = new ShareMarketDbContext())
-            //{
-            //    //Student stud = new Student() { StudentName = "New Student" };
-            //    //ctx.Students.Add(stud);
-            //    //ctx.SaveChanges();
-            //    //Student stud1 = ctx.Students.FirstOrDefault<Student>();
-            //    //Standard std = ctx.Standards.FirstOrDefault<Standard>();
-
-            //}
-            
-
             var ctx1 = new ShareMarketDbContext();
+            ctx1.Database.Initialize(true);
 
-            Standard standard = new Standard();
-            standard.StandardName = "";
-            standard.Description = " ";
-            ctx1.Standards.Add(standard);
-            ctx1.SaveChanges();
+          
+            if (ctx1.Database.Exists())
+            {
+                WebSecurity.InitializeDatabaseConnection("dbConnection", "UserProfile", "Id", "UserName",
+                    autoCreateTables: true);
+            }
+        
+            // Enumerate on roles : add them if they don't exists.
+            EnumUtil.GetValues<RoleType>().ForEach((item) =>
+            {
+                if (! System.Web.Security.Roles.RoleExists(item.ToString()))
+                {
+                    System.Web.Security.Roles.CreateRole(item.ToString());
+                }
+            });
 
-            //// Initialize Membership : Create additional tables if they don't exists.
-            //WebSecurity.InitializeDatabaseConnection("dbConnection", "User", "Id", "Email", true);
-
-            //// Enumerate on roles : add them if they don't exists.
-            //EnumUtil.GetValues<Role>().ForEach((item) =>
-            //{
-            //    if (!Roles.RoleExists(item.ToString()))
-            //    {
-            //        Roles.CreateRole(item.ToString());
-            //    }
-            //});
+            using (HomeLib homeLib = GlobalUtil.Container.Resolve<HomeLib>())
+            {
+                homeLib.CreateUser();
+            }
 
             //Seed();
         }

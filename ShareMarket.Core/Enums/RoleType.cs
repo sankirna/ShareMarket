@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShareMarket.Code
+namespace ShareMarket.Core.Enums
 {
-    public class Class1
+    public enum RoleType
     {
+        Admin = 1,
+        Advisor = 2,
+        Customer = 3,
     }
 }

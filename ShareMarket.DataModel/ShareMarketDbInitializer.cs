@@ -13,14 +13,14 @@ namespace ShareMarket.DataAccess
     {
         protected override void Seed(ShareMarketDbContext context)
         {
-            IList<Standard> defaultStandards = new List<Standard>();
+            //IList<Standard> defaultStandards = new List<Standard>();
 
-            defaultStandards.Add(new Standard() { StandardName = "Standard 1", Description = "First Standard" });
-            defaultStandards.Add(new Standard() { StandardName = "Standard 2", Description = "Second Standard" });
-            defaultStandards.Add(new Standard() { StandardName = "Standard 3", Description = "Third Standard" });
+            //defaultStandards.Add(new Standard() { StandardName = "Standard 1", Description = "First Standard" });
+            //defaultStandards.Add(new Standard() { StandardName = "Standard 2", Description = "Second Standard" });
+            //defaultStandards.Add(new Standard() { StandardName = "Standard 3", Description = "Third Standard" });
 
-            foreach (Standard std in defaultStandards)
-                context.Standards.Add(std);
+            //foreach (Standard std in defaultStandards)
+            //    context.Standards.Add(std);
 
             //All standards will
             base.Seed(context);

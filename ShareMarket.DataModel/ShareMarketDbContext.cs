@@ -27,14 +27,12 @@ namespace ShareMarket.DataAccess
             //Database.SetInitializer<ShareMarketDbContext>(null);
         }
 
-      
 
-        public DbSet<Student> Students { get; set; }
-        public DbSet<Standard> Standards { get; set; }
-
-        public DbSet<Collaborator> Collaborators { get; set; }
-        public DbSet<Department> Departments { get; set; }
-        public DbSet<Manager> Managers { get; set; }
+        public DbSet<UserProfile> UserProfiles { get; set; }
+        public DbSet<Membership> Memberships { get; set; }
+        public DbSet<OAuthMembership> OAuthMemberships { get; set; }
+        public DbSet<Roles> Roleses { get; set; }
+        public DbSet<UsersRole> UsersRoles { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -53,18 +51,7 @@ namespace ShareMarket.DataAccess
 
             //base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Department>().Property(dp => dp.Name).IsRequired();
-            modelBuilder.Entity<Manager>().HasKey(ma => ma.ManagerCode);
-            modelBuilder.Entity<Manager>().Property(ma => ma.Name)
-                .IsConcurrencyToken(true)
-                .IsVariableLength()
-                .HasMaxLength(20);
-
-            modelBuilder.Entity<Manager>()
-        .HasRequired(d => d.Department)
-        .WithMany()
-        .HasForeignKey(d => d.DepartmentId)
-        .WillCascadeOnDelete();
+          
         }
     }
 }
