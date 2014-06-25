@@ -12,8 +12,6 @@ namespace ShareMarket.Core
         [ForeignKey("UserId")]
         public virtual UserProfile UserProfile { get; set; }
 
-        public int CreatedByUserId { get; set; }
-        [ForeignKey("CreatedByUserId")]
-        public virtual UserProfile CreatedByUser { get; set; }
+       
     }
 }

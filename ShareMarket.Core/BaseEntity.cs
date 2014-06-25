@@ -19,11 +19,13 @@ namespace ShareMarket.Core
 
 
 
+        public int CreatedByUserId { get; set; }
+        [ForeignKey("CreatedByUserId")]
+        public virtual UserProfile CreatedByUser { get; set; }
 
-        //[ForeignKey("UserProfile")]
-        //public int UpdatedByUserId { get; set; }
-        // [ForeignKey("UpdatedByUserId")]
-        //public virtual UserProfile UpdatedByUser { get; set; }
+        public int UpdatedByUserId { get; set; }
+        [ForeignKey("UpdatedByUserId")]
+        public virtual UserProfile UpdatedByUser { get; set; }
 
 
     }

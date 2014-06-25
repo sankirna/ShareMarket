@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using ShareMarket.Core;
 
 
@@ -9,11 +10,11 @@ namespace ShareMarket.DataAccess
         public ShareMarketDbContext()
             : base("dbConnection")
         {
-              Database.SetInitializer<ShareMarketDbContext>(new DropCreateDatabaseIfModelChanges<ShareMarketDbContext>());
+            Database.SetInitializer<ShareMarketDbContext>(new DropCreateDatabaseIfModelChanges<ShareMarketDbContext>());
             //Database.SetInitializer<ShareMarketDbContext>(new DropCreateDatabaseAlways<ShareMarketDbContext>());
             //Database.SetInitializer<ShareMarketDbContext>(new CreateDatabaseIfNotExists<ShareMarketDbContext>());
             //Database.SetInitializer<ShareMarketDbContext>(new  ShareMarketDbInitializer());
-            
+
 
             //Disable initializer
             //Database.SetInitializer<ShareMarketDbContext>(null);
@@ -26,7 +27,7 @@ namespace ShareMarket.DataAccess
         public DbSet<Roles> Roleses { get; set; }
         public DbSet<UsersRole> UsersRoles { get; set; }
 
-        public DbSet<Trader> Traders  { get; set; }
+        public DbSet<Trader> Traders { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -42,10 +43,33 @@ namespace ShareMarket.DataAccess
             //}
             ////...or do it manually below. For example,
             ////modelBuilder.Configurations.Add(new LanguageMap());
-
+            
             base.OnModelCreating(modelBuilder);
 
-          
+            modelBuilder.Entity<Trader>()
+                    .HasRequired(s => s.CreatedByUser)
+                    .WithMany()
+                    .HasForeignKey(x => x.CreatedByUserId)
+                    .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Trader>()
+                .HasRequired(s => s.UpdatedByUser)
+                .WithMany()
+                .HasForeignKey(x => x.UpdatedByUserId)
+                .WillCascadeOnDelete(false);
+
+           // SetCascadingDelete(modelBuilder,new Trader());
+        }
+
+        public void SetCascadingDelete<T>( DbModelBuilder modelBuilder,T enity) where T : class
+        {
+
+
+            modelBuilder.Entity< T>()
+                 .HasRequired(x => x.GetType().GetProperty("CreatedByUser"))
+                 .WithMany()
+                 .HasForeignKey(x => x.GetType().GetProperty("CreatedByUserId").Name)
+                 .WillCascadeOnDelete(false);
         }
     }
 }

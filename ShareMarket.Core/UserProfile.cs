@@ -19,5 +19,8 @@ namespace ShareMarket.Core
         public virtual Membership Membership { get; set; }
 
         public virtual ICollection<Roles> Roles { get; set; }
+
+        public virtual ICollection<Trader> Traders { get; set; }
+
     }
 }
