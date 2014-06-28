@@ -29,6 +29,14 @@ namespace ShareMarket.DataAccess
 
         public DbSet<Trader> Traders { get; set; }
 
+        public DbSet<QueuedEmail> QueuedEmails { get; set; }
+        public DbSet<QueuedSms> QueuedSmses { get; set; }
+        public DbSet<MessageTemplate> MessageTemplates { get; set; }
+        public DbSet<ScheduleTask> ScheduleTasks { get; set; }
+
+        public DbSet<Setting> Settings { get; set; }
+
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             ////dynamically load all configuration
@@ -43,7 +51,7 @@ namespace ShareMarket.DataAccess
             //}
             ////...or do it manually below. For example,
             ////modelBuilder.Configurations.Add(new LanguageMap());
-            
+
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<Trader>()
@@ -58,14 +66,14 @@ namespace ShareMarket.DataAccess
                 .HasForeignKey(x => x.UpdatedByUserId)
                 .WillCascadeOnDelete(false);
 
-           // SetCascadingDelete(modelBuilder,new Trader());
+            // SetCascadingDelete(modelBuilder,new Trader());
         }
 
-        public void SetCascadingDelete<T>( DbModelBuilder modelBuilder,T enity) where T : class
+        public void SetCascadingDelete<T>(DbModelBuilder modelBuilder, T enity) where T : class
         {
 
 
-            modelBuilder.Entity< T>()
+            modelBuilder.Entity<T>()
                  .HasRequired(x => x.GetType().GetProperty("CreatedByUser"))
                  .WithMany()
                  .HasForeignKey(x => x.GetType().GetProperty("CreatedByUserId").Name)

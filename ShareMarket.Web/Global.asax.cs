@@ -6,6 +6,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using ShareMarket.BusinessLogic.Message;
 using ShareMarket.Utility.Utilities;
 
 namespace ShareMarket.Web
@@ -32,7 +33,12 @@ namespace ShareMarket.Web
 
             // Initializes the appsettings.
             GlobalUtil.SetAppSettingValue();
-           
+
+            //Task initialize
+            //Schedule task
+            TaskManager.Instance.Initialize();
+            TaskManager.Instance.Start();
+
         }
     }
 }

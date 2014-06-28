@@ -65,6 +65,7 @@
     <Compile Include="Utilities\EnumUtil.cs" />
     <Compile Include="Utilities\ExtensionUtil.cs" />
     <Compile Include="Utilities\GlobalUtil.cs" />
+    <Compile Include="Utilities\HtmlRemovalUtil.cs" />
     <Compile Include="Utilities\StringUtil.cs" />
     <Compile Include="Utilities\WebUtil.cs" />
   </ItemGroup>
