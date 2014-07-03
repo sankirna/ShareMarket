@@ -6,6 +6,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using Autofac;
+using ShareMarket.BusinessLogic.Helpers;
 using ShareMarket.DataAccess.Repository;
 using ShareMarket.Utility.Utilities;
 
@@ -63,16 +64,17 @@ namespace ShareMarket.BusinessLogic.Repository
         {
             try
             {
-                //using (IWebSecurity webSecurity = _context.Resolve<IWebSecurity>())
-                //{
-                //    PropertyInfo createdOn = entity.GetType().GetProperty("CreatedOn");
-                //    if (createdOn != null) createdOn.SetValue(entity, DateUtil.GetCurrentDateTime(), null);
+                using (IWebSecurity webSecurity = _context.Resolve<IWebSecurity>())
+                {
+                    PropertyInfo createdOn = entity.GetType().GetProperty("CreatedOn");
+                    if (createdOn != null) createdOn.SetValue(entity, DateUtil.GetCurrentDateTime(), null);
 
-                //    PropertyInfo createdBy = entity.GetType().GetProperty("CreatedBy");
-                //    if (createdBy != null) createdBy.SetValue(entity, webSecurity.CurrentUserId == -1 ? (int?)null : webSecurity.CurrentUserId, null); //while New User  CurrentUserId is -1. so, set it null value.
-              
-                //}
+                    //PropertyInfo createdBy = entity.GetType().GetProperty("CreatedBy");
+                    //if (createdBy != null) createdBy.SetValue(entity, webSecurity.CurrentUserId == -1 ? (int?)null : webSecurity.CurrentUserId, null); //while New User  CurrentUserId is -1. so, set it null value.
 
+                }
+                //PropertyInfo createdOn = entity.GetType().GetProperty("CreatedOn");
+                //if (createdOn != null) createdOn.SetValue(entity, DateUtil.GetCurrentDateTime(), null);
                 return _dbSet.Add(entity);
             }
             catch (Exception ex)
@@ -106,16 +108,15 @@ namespace ShareMarket.BusinessLogic.Repository
         {
             try
             {
-                //using (IWebSecurity webSecurity = _context.Resolve<IWebSecurity>())
-                //{
-                //    PropertyInfo modifiedOn = entity.GetType().GetProperty("ModifiedOn");
-                //    if (modifiedOn != null) modifiedOn.SetValue(entity, DateUtil.GetCurrentDateTime(), null);
+                using (IWebSecurity webSecurity = _context.Resolve<IWebSecurity>())
+                {
+                    PropertyInfo modifiedOn = entity.GetType().GetProperty("UpdatedOn");
+                    if (modifiedOn != null) modifiedOn.SetValue(entity, DateUtil.GetCurrentDateTime(), null);
 
-                //    PropertyInfo modifiedBy = entity.GetType().GetProperty("ModifiedBy");
-                //    if (modifiedBy != null) modifiedBy.SetValue(entity, webSecurity.CurrentUserId == -1 ? (int?)null : webSecurity.CurrentUserId, null); //while New User  CurrentUserId is -1. so, set it null value.
-                    
-                 
-                //}
+                    //PropertyInfo modifiedBy = entity.GetType().GetProperty("ModifiedBy");
+                    //if (modifiedBy != null) modifiedBy.SetValue(entity, webSecurity.CurrentUserId == -1 ? (int?)null : webSecurity.CurrentUserId, null); //while New User  CurrentUserId is -1. so, set it null value.
+
+                }
                 this.AttachEntity(entity);
             }
             catch (Exception ex)
@@ -435,18 +436,18 @@ namespace ShareMarket.BusinessLogic.Repository
         {
             try
             {
-                //using (IWebSecurity webSecurity = _context.Resolve<IWebSecurity>())
-                //{
-                //    PropertyInfo deleted = entity.GetType().GetProperty("IsDeleted");
-                //    if (deleted != null) deleted.SetValue(entity, true, null);
+                using (IWebSecurity webSecurity = _context.Resolve<IWebSecurity>())
+                {
+                    PropertyInfo deleted = entity.GetType().GetProperty("IsDeleted");
+                    if (deleted != null) deleted.SetValue(entity, true, null);
 
-                //    PropertyInfo modifiedOn = entity.GetType().GetProperty("ModifiedOn");
-                //    if (modifiedOn != null) modifiedOn.SetValue(entity, DateUtil.GetCurrentDateTime(), null);
+                    PropertyInfo modifiedOn = entity.GetType().GetProperty("UpdatedOn");
+                    if (modifiedOn != null) modifiedOn.SetValue(entity, DateUtil.GetCurrentDateTime(), null);
 
-                //    PropertyInfo modifiedBy = entity.GetType().GetProperty("ModifiedBy");
-                //    if (modifiedBy != null) modifiedBy.SetValue(entity, webSecurity.CurrentUserId, null);
-    
-                //}
+                    //PropertyInfo modifiedBy = entity.GetType().GetProperty("ModifiedBy");
+                    //if (modifiedBy != null) modifiedBy.SetValue(entity, webSecurity.CurrentUserId, null);
+
+                }
                 this.AttachEntity(entity);
             }
             catch (Exception ex)

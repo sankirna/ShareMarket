@@ -8,7 +8,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Security;
 using Autofac;
-using MobileSurvey.Utils.Enum;
 using ShareMarket.BusinessLogic.Libs;
 using ShareMarket.Core;
 using ShareMarket.Core.Enums;
@@ -45,7 +44,7 @@ namespace ShareMarket.Web
 
             using (HomeLib homeLib = GlobalUtil.Container.Resolve<HomeLib>())
             {
-                homeLib.CreateUser();
+               // homeLib.CreateUser();
             }
 
             //Seed();

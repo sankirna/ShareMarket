@@ -1,0 +1,55 @@
+﻿@model ShareMarket.BusinessLogic.Models.TraderModel
+
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+    <h2>Create a new account.</h2>
+</hgroup>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+    @Html.HiddenFor(x => x.UserProfile.UpdatedOn)
+    @Html.HiddenFor(x => x.UserProfile.Id)
+    @Html.HiddenFor(x => x.UserProfile.UserType)
+    @Html.HiddenFor(x => x.UserProfile.IsDeleted)
+    @Html.HiddenFor(x => x.UserProfile.CreatedOn)
+
+    @Html.HiddenFor(x => x.Id)
+    @Html.HiddenFor(x => x.UserId)
+    @Html.HiddenFor(x => x.CreatedOn)
+    @Html.HiddenFor(x => x.CreatedByUserId)
+    @Html.HiddenFor(x => x.UpdatedOn)
+    @Html.HiddenFor(x => x.UpdatedByUserId)
+    <fieldset>
+        <legend>Registration Form</legend>
+        <ol>
+            <li>
+                @Html.LabelFor(m => m.UserProfile.UserName)
+                @Html.TextBoxFor(m => m.UserProfile.UserName)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.UserProfile.Password)
+                @Html.PasswordFor(m => m.UserProfile.Password)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.StringBirthDate)
+                @Html.TextBoxFor(m => m.StringBirthDate)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.ExprInStockMarketMm)
+                @Html.TextBoxFor(m => m.ExprInStockMarketMm)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.ExprInStockMarketYy)
+                @Html.TextBoxFor(m => m.ExprInStockMarketYy)
+            </li>
+
+        </ol>
+        <input type="submit" value="Register" />
+    </fieldset>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Autofac;
 using ShareMarket.Core;
 using ShareMarket.DataAccess;
+using ShareMarket.DataAccess.Repository;
 using ShareMarket.Utility.Utilities;
 
 namespace ShareMarket.BusinessLogic.Libs
@@ -33,6 +34,8 @@ namespace ShareMarket.BusinessLogic.Libs
         #endregion
 
         #region "Public Member(s)"
+
+        #region Email and Sms
 
         public static string SettingValue(string name)
         {
@@ -74,12 +77,10 @@ namespace ShareMarket.BusinessLogic.Libs
             }
             catch (Exception ex)
             {
-                ex.LogError(typeof (GlobalLib));
+                ex.LogError(typeof(GlobalLib));
             }
             return null;
         }
-
-
 
         /// <summary>
         /// Gets a task by its type
@@ -110,7 +111,6 @@ namespace ShareMarket.BusinessLogic.Libs
             return null;
         }
 
-
         public static List<QueuedEmail> GetUnsentEmails()
         {
             using (ShareMarketDbContext shareMarketDbContext = new ShareMarketDbContext())
@@ -137,6 +137,33 @@ namespace ShareMarket.BusinessLogic.Libs
                 return query.ToList();
             }
         }
+
+        #endregion
+
+        #region User
+
+        /// <summary>
+        /// Check user exists or not by email address
+        /// </summary>
+        /// <param name="userName">Email Address</param>
+        /// <returns>true/false</returns>
+        public static UserProfile GetUserByName(string userName)
+        {
+            try
+            {
+                using (IDataRepository<UserProfile> userProfileContext = GlobalUtil.Container.Resolve<IDataRepository<UserProfile>>())
+                {
+                    return userProfileContext.FirstOrDefault(u => u.UserName == userName && !u.IsDeleted);
+                }
+            }
+            catch (Exception ex)
+            {
+                ex.LogError(typeof(GlobalLib));
+            }
+            return null;
+        }
+
+        #endregion
 
         #endregion
 

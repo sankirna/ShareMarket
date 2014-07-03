@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ShareMarket.Core
 {
-    public class BaseEntityId
+    public class BaseEntityId : Notification
     {
         [Key]
         public int Id { get; set; }
@@ -17,13 +17,11 @@ namespace ShareMarket.Core
         public DateTime CreatedOn { get; set; }
         public Nullable<DateTime> UpdatedOn { get; set; }
 
-
-
-        public int CreatedByUserId { get; set; }
+        public int? CreatedByUserId { get; set; }
         [ForeignKey("CreatedByUserId")]
         public virtual UserProfile CreatedByUser { get; set; }
 
-        public int UpdatedByUserId { get; set; }
+        public int? UpdatedByUserId { get; set; }
         [ForeignKey("UpdatedByUserId")]
         public virtual UserProfile UpdatedByUser { get; set; }
 

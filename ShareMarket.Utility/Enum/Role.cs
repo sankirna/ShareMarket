@@ -1,4 +1,4 @@
-﻿namespace MobileSurvey.Utils.Enum
+﻿namespace ShareMarket.Utility.Enum
 {
     /// <summary>
     /// Mobile Survey Roles  : Predefine system roles.

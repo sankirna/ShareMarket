@@ -14,6 +14,12 @@ namespace ShareMarket.Core
     {
         public string UserName { get; set; }
 
+        public bool IsDeleted { get; set; }
+
+        public DateTime CreatedOn { get; set; }
+
+        public DateTime? UpdatedOn { get; set; }
+
         public UserType UserType { get; set; }
 
         public virtual Membership Membership { get; set; }
@@ -21,6 +27,9 @@ namespace ShareMarket.Core
         public virtual ICollection<Roles> Roles { get; set; }
 
         public virtual ICollection<Trader> Traders { get; set; }
+
+        [NotMapped]
+        public string Password { get; set; }
 
     }
 }

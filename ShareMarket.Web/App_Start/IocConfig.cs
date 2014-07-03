@@ -25,6 +25,7 @@ namespace ShareMarket.Web
             ContainerBuilder containerBuilder = new ContainerBuilder();
             // Register all controllers.
             containerBuilder.RegisterControllers(typeof(HomeController).Assembly);
+            containerBuilder.RegisterControllers(typeof(ShareMarket.Web.Controllers.HomeController).Assembly);
 
             // Register HttpContextBase.
             containerBuilder.RegisterType(typeof(HttpContextBase));
