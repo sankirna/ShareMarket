@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Autofac;
 using ShareMarket.BusinessLogic.Helpers;
 using ShareMarket.Core.Enums;
+using ShareMarket.BusinessLogic.Models;
+using ShareMarket.Utility.Utilities;
 
 namespace ShareMarket.BusinessLogic.Libs
 {
@@ -32,6 +34,29 @@ namespace ShareMarket.BusinessLogic.Libs
         #endregion
 
         #region "Public Member(s)"
+
+        /// <summary>
+        /// User Login with emailAddress and Password
+        /// </summary>
+        /// <param name="login">Login Model</param>
+        /// <returns>UserInfo Entity</returns>
+        public bool Login(LoginModel login)
+        {
+            try
+            {
+                using (IWebSecurity webSecurity = _context.Resolve<IWebSecurity>())
+                {
+                    return webSecurity.Login(login.EmailAddress, login.Password, persistCookie: login.RememberMe);
+                }
+            }
+            catch (Exception ex)
+            {
+                ex.LogError(this);
+            }
+
+            return false;
+        }
+
 
         /// <summary>
         /// Create New User Web Security
