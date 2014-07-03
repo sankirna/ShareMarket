@@ -152,7 +152,8 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
-    <Compile Include="Areas\Filters\AuthorizedUseAttribute.cs" />
+    <Compile Include="Areas\Admin\Filters\AuthorizedUseAttribute.cs" />
+    <Compile Include="Areas\Admin\HtmlHelpers\ActiveMenu.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

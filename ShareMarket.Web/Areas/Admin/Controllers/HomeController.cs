@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using Autofac;
 using ShareMarket.BusinessLogic.Libs;
 using ShareMarket.BusinessLogic.Models;
-using ShareMarket.Web.Areas.Filters;
+using ShareMarket.Web.Areas.Admin.Filters;
 
 namespace ShareMarket.Web.Areas.Admin.Controllers
 {

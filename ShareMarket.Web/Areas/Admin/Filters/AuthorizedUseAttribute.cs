@@ -1,10 +1,6 @@
-﻿using System.Linq;
-using System.Web.Mvc;
-using Autofac;
-using ShareMarket.Utility.Utilities;
+﻿using System.Web.Mvc;
 
-
-namespace ShareMarket.Web.Areas.Filters
+namespace ShareMarket.Web.Areas.Admin.Filters
 {
     public class AuthorizedUseAttribute : ActionFilterAttribute
     {

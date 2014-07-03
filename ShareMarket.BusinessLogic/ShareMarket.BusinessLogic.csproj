@@ -59,6 +59,7 @@
     <Compile Include="Helpers\IWebSecurity.cs" />
     <Compile Include="Libs\GlobalLib.cs" />
     <Compile Include="Libs\HomeLib.cs" />
+    <Compile Include="Libs\SettingLib.cs" />
     <Compile Include="Libs\TraderLib.cs" />
     <Compile Include="Libs\UserLib.cs" />
     <Compile Include="Message\EmailSender.cs" />
