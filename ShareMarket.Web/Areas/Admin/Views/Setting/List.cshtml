@@ -6,7 +6,7 @@
     ViewBag.Title = "List";
 }
 
-    @Breadcrumb.SetPageHeader("setting", new List<BreadcrumbModel>()
+@Breadcrumb.SetPageHeader("setting", new List<BreadcrumbModel>()
     {
         new BreadcrumbModel() { Name = "Home", Url = Url.Action("Index", "Home") },
          new BreadcrumbModel() { Name = "Setting", Url = Url.Action("Index", "Setting") }
@@ -35,51 +35,53 @@
                 Message Template is deleted successfully!
             </div>
         }
-               
-        <table class="table table-striped table-bordered table-hover" id="sample_11">
-            <thead>
-                <tr>
-                    @*<th style="width: 8px;" class="sorting_disabled">
+        <div class="portlet-body">
+            @Breadcrumb.AddButton(Url.Action("AddEditView", "Setting", new { id = 0 }))
+            <table class="table table-striped table-bordered table-hover" id="sample_11">
+                <thead>
+                    <tr>
+                        @*<th style="width: 8px;" class="sorting_disabled">
                                 <input type="checkbox" class="group-checkable" data-set="#sample_3 .checkboxes" />
                             </th>*@
-                    <th class="hidden-480">
-                        @Html.DisplayNameFor(model => model[0].Name)
-                    </th>
+                        <th class="hidden-480">
+                            @Html.DisplayNameFor(model => model[0].Name)
+                        </th>
 
 
 
-                    <th class="hidden-480"></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (Setting item in Model)
-                {
-                    <tr class="odd gradeX">
-                        @*<td>
+                        <th class="hidden-480"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Setting item in Model)
+                    {
+                        <tr class="odd gradeX">
+                            @*<td>
                                     <input type="checkbox" class="checkboxes" value="1" />
                                 </td>*@
-                        <td class="hidden-480">
-                        @Html.DisplayFor(modelItem => item.Name)
+                            <td class="hidden-480">
+                            @Html.DisplayFor(modelItem => item.Name)
 
-                        @* <td class="hidden-480">
+                            @* <td class="hidden-480">
                                         @Html.DisplayFor(modelItem => item.MetaKeywords)
                                     </td>*@
-                        <td>
+                            <td>
 
-                            @Html.ActionLink("Edit", "AddEditView", new { id = item.Id }, new { @class = "btn mini green-stripe" })
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
+                                @Html.ActionLink("Edit", "AddEditView", new { id = item.Id }, new { @class = "btn mini green-stripe" })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <!-- END EXAMPLE TABLE PORTLET-->
     </div>
-    <!-- END EXAMPLE TABLE PORTLET-->
 </div>
-        
+
 <script>
     jQuery(document).ready(function () {
         TableManaged.init();
     });
-   </script>
+</script>
 
 
