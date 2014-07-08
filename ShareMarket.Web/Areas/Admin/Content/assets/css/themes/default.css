@@ -55,8 +55,7 @@ Page sidebar
 
 
 .page-sidebar > ul > li.active > a {
-    background-color: #F35E09 !important;
-  /*background: #e02222 !important;*/  
+  background: #e02222 !important;  
   border-top-color: transparent !important;
   color:#fff;
 }  

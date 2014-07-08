@@ -1,0 +1,42 @@
+﻿@using ShareMarket.Web.Areas.Admin.Models
+
+@helper SetPageHeader(string pageTitle, List<BreadcrumbModel> model)
+{
+    <!-- BEGIN PAGE TITLE & BREADCRUMB-->			
+    <h3 class="page-title">@pageTitle
+    </h3>
+    <ul class="breadcrumb">
+        @for (int i = 0; i < model.Count; i++)
+        {
+            if (i == 0)
+            {
+            @CreateUrl(model[i], true, false)
+            }
+            else if (i == model.Count)
+            {
+            @CreateUrl(model[i], false, false)
+            }
+            else
+            {
+            @CreateUrl(model[i], false, true)
+            }
+        }
+        
+    </ul>
+    <!-- END PAGE TITLE & BREADCRUMB-->
+}
+
+@helper CreateUrl(BreadcrumbModel model, bool isFirst, bool isLast)
+{
+    <li>
+        @if (isFirst)
+        {
+            <i class="icon-home"></i>
+        }
+        <a href="@model.Url">@model.Name</a>
+        @if (!isLast)
+        {
+            <i class="icon-angle-right"></i>
+        }
+    </li>
+}

@@ -24,14 +24,14 @@ Large notebooks and desktops
   	}
 
   	.page-sidebar ul{
-  		width: 175px;
+  		width: 225px;
   	}
 
   	/***
   	Page content
   	***/
   	.page-content { 
-  		margin-left: 175px; 
+  		margin-left: 225px; 
 		margin-top: 0px;
 		min-height: 860px; 
 	}
@@ -305,17 +305,17 @@ For tablets and phones
 	/***
 	Footer	
 	***/	
-	.footer {        
+	.footer {
 		padding-left: 10px;
-		padding-right: 10px;
+		padding-right: 10px;		
 	}	
 	
-	.footer .go-top {          
+	.footer .go-top {  
 		float: right;
 		display: block;
 		margin-top: -22px;
 		margin-right: 0px;
-		margin-bottom: 5px !important;        		
+		margin-bottom: 5px !important;
 	}
 
 	/***

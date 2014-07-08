@@ -74,20 +74,13 @@ var FormComponents = function () {
     }
 
     var handlejQueryUIDatePickers = function () {
-
-        $(".ui-date-picker").datepicker();
+        $( ".ui-date-picker" ).datepicker();
     }
 
     var handleDateTimePickers = function () {
 
         if (jQuery().datepicker) {
-            $('.date-picker').datepicker(
-                {
-                    dateFormat: "dd/mm/yy",
-                    changeMonth: true,
-                    changeYear: true,
-                    yearRange: "-70:+25"
-                });
+            $('.date-picker').datepicker();
         }
 
         if (jQuery().timepicker) {
@@ -106,14 +99,14 @@ var FormComponents = function () {
         $('.date-range').daterangepicker(
             {
                 opens: (App.isRTL() ? 'left' : 'right'),
-                format: 'dd/MM/yyyy',
+                format: 'MM/dd/yyyy',
                 separator: ' to ',
                 startDate: Date.today().add({
                     days: -29
                 }),
                 endDate: Date.today(),
                 minDate: '01/01/2012',
-                maxDate: '12/31/2100'
+                maxDate: '12/31/2014',
             }
         );
 
@@ -122,17 +115,17 @@ var FormComponents = function () {
                 'Today': ['today', 'today'],
                 'Yesterday': ['yesterday', 'yesterday'],
                 'Last 7 Days': [Date.today().add({
-                    days: -6
-                }), 'today'],
+                        days: -6
+                    }), 'today'],
                 'Last 29 Days': [Date.today().add({
-                    days: -29
-                }), 'today'],
+                        days: -29
+                    }), 'today'],
                 'This Month': [Date.today().moveToFirstDayOfMonth(), Date.today().moveToLastDayOfMonth()],
                 'Last Month': [Date.today().moveToFirstDayOfMonth().add({
-                    months: -1
-                }), Date.today().moveToFirstDayOfMonth().add({
-                    days: -1
-                })]
+                        months: -1
+                    }), Date.today().moveToFirstDayOfMonth().add({
+                        days: -1
+                    })]
             },
             opens: (App.isRTL() ? 'left' : 'right'),
             format: 'MM/dd/yyyy',
@@ -170,23 +163,23 @@ var FormComponents = function () {
         }
     }
 
-    var handleNewDatetimePicker = function () {
+    var handleNewDatetimePicker = function () {        
 
-        $(".form_datetime").datetimepicker({
-            format: "dd MM yyyy - hh:ii",
-            pickerPosition: "bottom-left"
-        });
+          $(".form_datetime").datetimepicker({
+              format: "dd MM yyyy - hh:ii",
+              pickerPosition: "bottom-left"
+          });
 
-        $(".form_advance_datetime").datetimepicker({
-            format: "dd MM yyyy - hh:ii",
-            autoclose: true,
-            todayBtn: true,
-            startDate: "2013-02-14 10:00",
-            pickerPosition: "bottom-left",
-            minuteStep: 10
-        });
+         $(".form_advance_datetime").datetimepicker({
+              format: "dd MM yyyy - hh:ii",
+              autoclose: true,
+              todayBtn: true,
+              startDate: "2013-02-14 10:00",
+              pickerPosition: "bottom-left",
+              minuteStep: 10
+          });
 
-        $(".form_meridian_datetime").datetimepicker({
+         $(".form_meridian_datetime").datetimepicker({
             format: "dd MM yyyy - HH:ii P",
             showMeridian: true,
             autoclose: true,
@@ -348,28 +341,22 @@ var FormComponents = function () {
             'autounmask': true
         });
 
-        $("#mask_date").inputmask("d/m/y", { autoUnmask: true });  //direct mask        
-        $("#mask_date1").inputmask("d/m/y", { "placeholder": "*" }); //change the placeholder
-        $("#mask_date2").inputmask("d/m/y", { "placeholder": "dd/mm/yyyy" }); //multi-char placeholder
-        $("#mask_phone").inputmask("mask", { "mask": "(999) 999-9999" }); //specifying fn & options
-        $("#mask_tin").inputmask({ "mask": "99-9999999" }); //specifying options only
+        $("#mask_date").inputmask("d/m/y", {autoUnmask: true});  //direct mask        
+        $("#mask_date1").inputmask("d/m/y",{ "placeholder": "*"}); //change the placeholder
+        $("#mask_date2").inputmask("d/m/y",{ "placeholder": "dd/mm/yyyy" }); //multi-char placeholder
+        $("#mask_phone").inputmask("mask", {"mask": "(999) 999-9999"}); //specifying fn & options
+        $("#mask_tin").inputmask({"mask": "99-9999999"}); //specifying options only
         $("#mask_number").inputmask({ "mask": "9", "repeat": 10, "greedy": false });  // ~ mask "9" or mask "99" or ... mask "9999999999"
         $("#mask_decimal").inputmask('decimal', { rightAlignNumerics: false }); //disables the right alignment of the decimal input
         $("#mask_currency").inputmask('€ 999.999.999,99', { numericInput: true });  //123456  =>  € ___.__1.234,56
-        $("#mask_currency2").inputmask('€ 999,999,999.99', { numericInput: true, rightAlignNumerics: false }); //123456  =>  € ___.__1.234,56
-        $("#mask_ssn").inputmask("999-99-9999", { placeholder: " ", clearMaskOnLostFocus: true }); //default
-        $(".cust_date_mask1").inputmask("d/m/y", { "placeholder": "dd/mm/yyyy" });//multi-char placeholder
-        $(".cust_number_mask1").inputmask({ "mask": "9", "repeat": 10, "greedy": false });  // ~ mask "9" or mask "99" or ... mask "9999999999"
+        $("#mask_currency2").inputmask('€ 999,999,999.99', { numericInput: true, rightAlignNumerics: false  }); //123456  =>  € ___.__1.234,56
+        $("#mask_ssn").inputmask("999-99-9999", {placeholder:" ", clearMaskOnLostFocus: true }); //default
     }
 
     var handleIPAddressInput = function () {
         $('#input_ipv4').ipAddress();
-        $('#input_ipv6').ipAddress({ v: 6 });
+        $('#input_ipv6').ipAddress({v:6});
     }
-
-    $(".readonlyDate").keypress(function () {
-        return false;
-    });
 
     return {
         //main function to initiate the module

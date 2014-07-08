@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Autofac;
+using ShareMarket.BusinessLogic.Libs;
+using ShareMarket.Core;
 
 namespace ShareMarket.Web.Areas.Admin.Controllers
 {
@@ -11,7 +13,6 @@ namespace ShareMarket.Web.Areas.Admin.Controllers
     {
         //
         // GET: /Admin/Setting/
-
 
         #region "Private Member(s)"
 
@@ -33,6 +34,43 @@ namespace ShareMarket.Web.Areas.Admin.Controllers
         #endregion
 
         #region "Public Member(s)"
+
+        public ActionResult List()
+        {
+            using (SettingLib settingLib = _context.Resolve<SettingLib>())
+            {
+                List<Setting> settings = settingLib.GetList().ToList();
+                return View(settings);
+            }
+        }
+
+        public ActionResult AddEditView(int id)
+        {
+            using (SettingLib settingLib = _context.Resolve<SettingLib>())
+            {
+                Setting setting = settingLib.GetEntityById(id);
+                return View(setting);
+            }
+
+        }
+
+        [HttpPost]
+        public ActionResult AddEditView(Setting model)
+        {
+            using (SettingLib settingLib = _context.Resolve<SettingLib>())
+            {
+                model = settingLib.AddUpdateEnity(model);
+                if (model.ErrorList.Count <= 0)
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return View(model);
+                }
+            }
+        }
+        
 
         #endregion
 

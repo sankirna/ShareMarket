@@ -152,8 +152,10 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SettingController.cs" />
     <Compile Include="Areas\Admin\Filters\AuthorizedUseAttribute.cs" />
     <Compile Include="Areas\Admin\HtmlHelpers\ActiveMenu.cs" />
+    <Compile Include="Areas\Admin\Models\BreadcrumbModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -1782,6 +1784,7 @@
     <Content Include="Areas\Admin\Content\Upload\PrePrintedImage\Photo_2014-05-23-16-07-46_635364580660061428_loading-image.gif" />
     <Content Include="Areas\Admin\Scripts\bootstrap.js" />
     <Content Include="Areas\Admin\Scripts\bootstrap.min.js" />
+    <Content Include="App_Code\Breadcrumb.cshtml" />
     <None Include="Areas\Admin\Scripts\jquery-2.1.0.intellisense.js" />
     <Content Include="Areas\Admin\Scripts\jquery-2.1.0.js" />
     <Content Include="Areas\Admin\Scripts\jquery-2.1.0.min.js" />
@@ -2097,6 +2100,7 @@
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Areas\Admin\Views\Home\Login.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Unauthorised.cshtml" />
+    <Content Include="Areas\Admin\Views\Setting\List.cshtml" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
@@ -2172,7 +2176,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Content\Upload\EmailAttachment\" />
     <Folder Include="Areas\Admin\Content\Upload\MembershipDocument\" />
-    <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Filters\" />
     <Folder Include="Models\" />
   </ItemGroup>

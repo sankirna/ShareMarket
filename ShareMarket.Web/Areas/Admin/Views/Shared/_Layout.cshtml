@@ -3,9 +3,14 @@
 <head>
     <title>Share Market - @ViewBag.Title</title>
     @Styles.Render("~/Content/assets/css")
+    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/Content/assets/plugins/select2/select2_metro.css" />
+
      @Scripts.Render("~/bundles/jquery")
      @Scripts.Render("~/Content/assets/js")
-
+      <script type="text/javascript" src="~/Areas/Admin/Content/assets/plugins/select2/select2.min.js"></script>
+    <script src="~/Areas/Admin/Content/assets/plugins/data-tables/jquery.dataTables.js"></script>
+      <script type="text/javascript" src="~/Areas/Admin/Content/assets/plugins/data-tables/DT_bootstrap.js"></script>
+      <script src="~/Areas/Admin/Content/assets/scripts/table-managed.js"></script>     
     @if (IsSectionDefined("scripts"))
     {
         @RenderSection("scripts", required: true)
@@ -24,8 +29,12 @@
         <!-- BEGIN PAGE -->
         <div class="page-content">
             <div id="dialogforMyProfile"></div>
-            @RenderBody()
-        </div>
+            <!-- BEGIN PAGE CONTAINER-->
+            <div class="container-fluid">
+                @RenderBody()
+            </div>
+            </div>
+
         <!-- END PAGE -->
     </div>
     <!-- END CONTAINER -->

@@ -27,7 +27,6 @@ News Page
   border-top: solid 2px #faf6ea;
 }
 
-/*
 .news-blocks:hover {
   background: #fff;
   border-color: #78cff8;
@@ -35,7 +34,7 @@ News Page
   -moz-transition: all 0.4s ease-in-out 0s;
   -webkit-transition: all 0.4s ease-in-out 0s;
 }
-  */
+
 .news-blocks h3 {
   margin: 0 0 5px 0;
   font-size: 23px;
@@ -46,12 +45,10 @@ News Page
   color: #000;
 }
 
-/*
 .news-blocks h3 a:hover {
   color: #78cff8;
   text-decoration: none;
 }
-    */
 
 .news-blocks p {
   overflow: hidden;

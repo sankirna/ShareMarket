@@ -1,5 +1,6 @@
-﻿@{
-    ViewBag.Title = "Index";
-}
+﻿@using ShareMarket.Web.Areas.Admin.Models
 
-<h2>Index</h2>
+    @Breadcrumb.SetPageHeader("setting", new List<BreadcrumbModel>()
+    {
+        new BreadcrumbModel() { Name = "Home", Url = Url.Action("Index", "Home") },
+    })

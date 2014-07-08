@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using Autofac;
 using ShareMarket.BusinessLogic.Libs;
 using ShareMarket.BusinessLogic.Models;
-using ShareMarket.Web.Areas.Admin.Filters;
+using ShareMarket.Web.Areas.Filters;
 
 namespace ShareMarket.Web.Areas.Admin.Controllers
 {
@@ -36,7 +36,7 @@ namespace ShareMarket.Web.Areas.Admin.Controllers
 
         #region "Public Member(s)"
 
-        public ActionResult Index()
+        public override ActionResult Index()
         {
             return View();
         }

@@ -7,24 +7,10 @@ Login page
   background-color: #444 !important;
 }
 
-.login .toplogo {
-  /*width: 305px;*/
-  margin: 0 auto;   
-  margin-top:0px;
-  padding: 15px;
-  text-align: center;
-  background-color:white !important;
-}
-
-.login .toplogo img {
-  width: 350px;
-}
-
 .login .logo {
-  width: 350px;
+  width: 247px;
   margin: 0 auto;   
-  margin-top:30px;
-  margin-bottom:30px;
+  margin-top:60px;
   padding: 15px;
   text-align: center;
 }  
