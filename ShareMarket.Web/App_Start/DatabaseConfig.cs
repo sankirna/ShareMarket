@@ -44,7 +44,7 @@ namespace ShareMarket.Web
 
             using (HomeLib homeLib = GlobalUtil.Container.Resolve<HomeLib>())
             {
-               // homeLib.CreateUser();
+                homeLib.CreateUser();
             }
 
             //Seed();

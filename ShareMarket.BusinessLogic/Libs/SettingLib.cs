@@ -141,7 +141,7 @@ namespace ShareMarket.BusinessLogic.Libs
                 {
                     using (IDataRepository<Setting> settingContext = _context.Resolve<IDataRepository<Setting>>())
                     {
-                        settingContext.Delete(id);
+                        settingContext.Delete(x => x.Id == id);
                         settingContext.SaveChanges();
                         return true;
                     }

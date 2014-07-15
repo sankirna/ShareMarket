@@ -9,16 +9,7 @@ namespace ShareMarket.Web
         {
             #region Temp Asp.net Default template
 
-            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                      "~/Scripts/jquery-{version}.js"));
-
-            bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
-                        "~/Scripts/jquery-ui-{version}.js"));
-
-            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                        "~/" +
-                        "Scripts/jquery.unobtrusive*",
-                        "~/Scripts/jquery.validate*"));
+      
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
@@ -94,7 +85,6 @@ namespace ShareMarket.Web
             bundles.Add(new ScriptBundle("~/Content/assets/js/Login").Include(
                  "~/Areas/Admin/Content/assets/plugins/jquery-validation/dist/jquery.validate.js",
              "~/Areas/Admin/Content/assets/plugins/jquery-validation/dist/jquery.validate.min.js",
-             "~/Areas/Admin/Content/assets/scripts/app.js",
              "~/Areas/Admin/Content/assets/scripts/login.js"
              ));
 
@@ -133,9 +123,8 @@ namespace ShareMarket.Web
 "~/Areas/Admin/Content/assets/plugins/uniform/jquery.uniform.js",
 "~/Areas/Admin/Content/assets/plugins/uniform/jquery.uniform.min.js",
 "~/Areas/Admin/Content/assets/scripts/app.js"
+         ));
 
-
-                ));
 
             #endregion "Style"
 

@@ -619,3 +619,51 @@ ShareMarket.Core.Trader ---> System.NullReferenceException: Object reference not
    at AutoMapper.MappingEngine.Map[TSource,TDestination](TSource source)
    at AutoMapper.Mapper.Map[TSource,TDestination](TSource source)
    at ShareMarket.BusinessLogic.Libs.TraderLib.GetEntityById(Int32 Id) in e:\Repository Projects\ShareMarket\Source\ShareMarket.BusinessLogic\Libs\TraderLib.cs:line 86
+Id not found
+System.Exception: Id not found
+   at ShareMarket.BusinessLogic.Libs.SettingLib.GetEntityById(Int32 Id) in e:\Repository Projects\ShareMarket\Source\ShareMarket.BusinessLogic\Libs\SettingLib.cs:line 75
+Id not found
+System.Exception: Id not found
+   at ShareMarket.BusinessLogic.Libs.SettingLib.GetEntityById(Int32 Id) in e:\Repository Projects\ShareMarket\Source\ShareMarket.BusinessLogic\Libs\SettingLib.cs:line 75
+Id not found
+System.Exception: Id not found
+   at ShareMarket.BusinessLogic.Libs.SettingLib.GetEntityById(Int32 Id) in e:\Repository Projects\ShareMarket\Source\ShareMarket.BusinessLogic\Libs\SettingLib.cs:line 75
+Id not found
+System.Exception: Id not found
+   at ShareMarket.BusinessLogic.Libs.SettingLib.GetEntityById(Int32 Id) in e:\Repository Projects\ShareMarket\Source\ShareMarket.BusinessLogic\Libs\SettingLib.cs:line 75
+Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at ShareMarket.BusinessLogic.Repository.DataRepository`1.SaveChanges() in e:\Repository Projects\ShareMarket\Source\ShareMarket.BusinessLogic\Repository\DataRepository.cs:line 383
+Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+System.Exception: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details. ---> System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at ShareMarket.BusinessLogic.Repository.DataRepository`1.SaveChanges() in e:\Repository Projects\ShareMarket\Source\ShareMarket.BusinessLogic\Repository\DataRepository.cs:line 383
+   --- End of inner exception stack trace ---
+   at ShareMarket.Utility.Utilities.ExtensionUtil.LogError(Exception ex, Object callingType) in e:\Repository Projects\ShareMarket\Source\ShareMarket.Utility\Utilities\ExtensionUtil.cs:line 20
+   at ShareMarket.BusinessLogic.Repository.DataRepository`1.SaveChanges() in e:\Repository Projects\ShareMarket\Source\ShareMarket.BusinessLogic\Repository\DataRepository.cs:line 400
+   at ShareMarket.BusinessLogic.Libs.SettingLib.AddUpdateEnity(Setting model) in e:\Repository Projects\ShareMarket\Source\ShareMarket.BusinessLogic\Libs\SettingLib.cs:line 114
+Cannot insert the value NULL into column 'IsDeleted', table 'ShareMarket.dbo.UserProfile'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'IsDeleted', table 'ShareMarket.dbo.UserProfile'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at WebMatrix.Data.Database.Execute(String commandText, Object[] args)
+   at WebMatrix.WebData.DatabaseWrapper.Execute(String commandText, Object[] parameters)
+   at WebMatrix.WebData.SimpleMembershipProvider.CreateUserRow(IDatabase db, String userName, IDictionary`2 values)
+   at WebMatrix.WebData.SimpleMembershipProvider.CreateUserAndAccount(String userName, String password, Boolean requireConfirmation, IDictionary`2 values)
+   at WebMatrix.WebData.WebSecurity.CreateUserAndAccount(String userName, String password, Object propertyValues, Boolean requireConfirmationToken)
+   at ShareMarket.Web.Helpers.WebSecurityWrapper.CreateUserAndAccount(String userName, String password, Object propertyValues, Boolean requireConfirmationToken) in e:\Repository Projects\ShareMarket\Source\ShareMarket.Web\Helpers\WebSecurityWrapper.cs:line 101
+ClientConnectionId:9565a5ca-b36a-4273-87a6-496e5a8fb7c1

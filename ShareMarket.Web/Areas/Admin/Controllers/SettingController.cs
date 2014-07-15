@@ -70,7 +70,16 @@ namespace ShareMarket.Web.Areas.Admin.Controllers
                 }
             }
         }
-        
+
+        public ActionResult Delete(int id)
+        {
+            using (SettingLib settingLib = _context.Resolve<SettingLib>())
+            {
+                settingLib.Delete(id);
+                return RedirectToAction("Index");
+            }
+        }
+
 
         #endregion
 

@@ -11,8 +11,7 @@ var TableManaged = function () {
 
             $('#sample_11').dataTable({
                 "aoColumns": [
-                  { "bSortable": false },
-                  null
+                  { "bSortable": false }
 
                 ],
                 "aLengthMenu": [

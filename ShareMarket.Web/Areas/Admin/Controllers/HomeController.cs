@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Autofac;
+using ShareMarket.BusinessLogic.Helpers;
 using ShareMarket.BusinessLogic.Libs;
 using ShareMarket.BusinessLogic.Models;
 using ShareMarket.Web.Areas.Filters;
@@ -49,6 +50,19 @@ namespace ShareMarket.Web.Areas.Admin.Controllers
         public ActionResult Login()
         {
             return View(new LoginModel());
+        }
+
+        /// <summary>
+        /// Logout method for user
+        /// </summary>
+        /// <returns>Redirect to home page</returns>
+        public ActionResult Logout()
+        {
+            using (IWebSecurity webSecurity = _context.Resolve<IWebSecurity>())
+            {
+                webSecurity.Logout();
+            }
+            return RedirectToAction("Login", "Home");
         }
 
         /// <summary>

@@ -50,6 +50,7 @@
 
 
                         <th class="hidden-480"></th>
+                         <th class="hidden-480"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -69,6 +70,9 @@
 
                                 @Html.ActionLink("Edit", "AddEditView", new { id = item.Id }, new { @class = "btn mini green-stripe" })
                             </td>
+                            <td>
+										@Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn mini red-stripe", onclick = "javascript:return confirm('Are you sure want to delete ?');" })
+									</td>
                         </tr>
                     }
                 </tbody>

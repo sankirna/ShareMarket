@@ -2101,6 +2101,7 @@
     <Content Include="Areas\Admin\Views\Home\Login.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Unauthorised.cshtml" />
     <Content Include="Areas\Admin\Views\Setting\List.cshtml" />
+    <Content Include="Areas\Admin\Views\Setting\AddEditView.cshtml" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
@@ -2223,7 +2224,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>13310</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

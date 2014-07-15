@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Autofac;
 using ShareMarket.BusinessLogic.Helpers;
+using ShareMarket.Core;
 using ShareMarket.Core.Enums;
 using ShareMarket.BusinessLogic.Models;
 using ShareMarket.Utility.Utilities;
@@ -67,20 +68,24 @@ namespace ShareMarket.BusinessLogic.Libs
         /// <returns>true/false</returns>
         public bool CreateUser()
         {
+             using (UserLib userLib = _context.Resolve<UserLib>())
             using (IWebSecurity webSecurity = _context.Resolve<IWebSecurity>())
             {
                 // Create user using web security
                 string userName = "SankirnaRana" + Guid.NewGuid();
-                webSecurity.CreateUserAndAccount(userName, "test#1234", new
+                if (!webSecurity.UserExists("SankirnaRana"))
                 {
-                    UserType = UserType.Admin
-                }, requireConfirmationToken: true);
 
-                using (IRole _role = _context.Resolve<IRole>())
-                {
-                    _role.AddUserToRole(userName,RoleType.Admin.ToString());
-                    return true;
+                    userLib.CreateUser(new UserProfile() {UserName = "SankirnaRana"},
+                        "test#123",
+                        RoleType.Trader, UserType.Trader);
                 }
+                //webSecurity.CreateUserAndAccount(userName, "test#1234", new
+                //{
+                //    UserType = UserType.Admin
+                //}, requireConfirmationToken: true);
+
+               
 
                 // Step 1: Add role in current user
                 //MapUserInRole(userAccount.UserName, role);

@@ -15,47 +15,35 @@
         </li>
         <li class=""><a href=""><i class="icon-home"></i><span class="title">Dashboard</span>
         </a></li>
-        
-          <li class="">
-                <a href="javascript:;" class="li-expandable">
-                    <i class="icon-cogs"></i>
-                    <span class="title">Configuration</span>
-                    <span class="arrow"></span>
-                </a>
-                <ul class="sub-menu">
-                        <li class="@Html.ActivePage("Index", "Setting")  "><a href="@Url.Action("Index", "Setting")"><i class="icon-cogs margin-right-5"></i><span class="title">Role Access</span>
-                        </a></li>
 
-                </ul>
-            </li>              
-            
+        <li class="">
+            <a href="javascript:;" class="li-expandable">
+                <i class="icon-cogs"></i>
+                <span class="title">Configuration</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+
+                @Setlink("setting", "Index", "Setting")
+
+            </ul>
+        </li>
 
 
-       
+
+
     </ul>
     <!-- END SIDEBAR MENU -->
 </div>
 
+@helper Setlink(string linkName, string actionName, string controllerName)
+{
+    
+    <li class="@Html.ActivePage(actionName, controllerName)  ">
+        <a href="@Url.Action(actionName, controllerName)">
+            <i class="icon-cogs margin-right-5"></i><span class="title">@linkName</span>
+        </a>
+    </li>
+}
 
-
-
-<script type="text/javascript">
-    $(function () {
-        // TODO  Set Arrow design 
-        $('.page-sidebar').find('li.active').find('.title').after("<span class='selected'></span>");
-        $("li.active").parents().parent("li").addClass("active open");
-        $("li.active").parents().parent("li.li-expandable").click();
-        $("li.active").parents().parent("li").find("span.arrow").addClass("open");
-        $('li.active').find('.title').after("<span class='selected'></span>");
-
-        $.each($(".collapse").find(".li-expandable").parents("li"), function (index, ele) {
-            if ($(this).find("li").length <= 0) {
-                $(this).hide();
-            }
-
-        });
-
-        App.init(); // initlayout and core plugins  
-    });
-</script>
 
