@@ -1,0 +1,58 @@
+﻿@using ShareMarket.Web.Areas.Admin.Models
+@model  ShareMarket.Core.CmsPage
+
+
+
+@Breadcrumb.SetPageHeader("setting", new List<BreadcrumbModel>()
+    {
+        new BreadcrumbModel() { Name = "Home", Url = Url.Action("Index", "Home") },
+         new BreadcrumbModel() { Name = "CmsPage", Url = Url.Action("Index", "CmsPage") },
+            new BreadcrumbModel() { Name = "Add | Edit",Url="#" }
+    })
+
+<div class="row-fluid">
+    <div class="span12">
+        <!-- BEGIN SAMPLE FORM PORTLET-->
+        <div class="portlet box blue">
+            <div class="portlet-title">
+                <div class="caption"><i class="icon-reorder"></i>Edit </div>
+            </div>
+            <div class="portlet-body form">
+                <!-- BEGIN FORM-->
+                @*<form action="#" class="form-horizontal">*@
+                @using (Html.BeginForm("AddEditView", "CmsPage", FormMethod.Post, new { @class = "form-horizontal" }))
+                {
+                    <div class="alert alert-error hide">
+                        <button class="close" data-dismiss="alert"></button>
+                        You have some form errors. Please check below.
+                    </div>
+                        
+                    @Html.HiddenFor(x => x.Id)
+                    <div class="control-group">
+                        <label class="control-label">
+                            @Html.DisplayNameFor(model => model.Title)<span class="required">*</span></label>
+                        <div class="controls">
+                            @Html.TextBoxFor(model => model.Title)
+                            @Html.ValidationMessageFor(model => model.Title)
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">
+                            @Html.DisplayNameFor(model => model.Body)<span class="required">*</span></label>
+                        <div class="controls">
+                            @Html.EditorFor(model => model.Body,"HtmlEditor")
+                            @Html.ValidationMessageFor(model => model.Body)
+                        </div>
+                    </div>
+                        
+                    <div class="form-actions">
+                        <button type="submit" class="btn blue">Submit</button>
+                        <button type="reset" class="btn" onclick="window.location.href = '@Url.Action("List", "CmsPage")'">Cancel</button>
+                    </div>
+                }
+                <!-- END FORM-->
+            </div>
+        </div>
+        <!-- END SAMPLE FORM PORTLET-->
+    </div>
+</div>

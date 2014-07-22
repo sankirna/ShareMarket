@@ -69,8 +69,8 @@ namespace ShareMarket.BusinessLogic.Repository
                     PropertyInfo createdOn = entity.GetType().GetProperty("CreatedOn");
                     if (createdOn != null) createdOn.SetValue(entity, DateUtil.GetCurrentDateTime(), null);
 
-                    //PropertyInfo createdBy = entity.GetType().GetProperty("CreatedBy");
-                    //if (createdBy != null) createdBy.SetValue(entity, webSecurity.CurrentUserId == -1 ? (int?)null : webSecurity.CurrentUserId, null); //while New User  CurrentUserId is -1. so, set it null value.
+                    PropertyInfo createdByUserId = entity.GetType().GetProperty("CreatedByUserId");
+                    if (createdByUserId != null) createdByUserId.SetValue(entity, webSecurity.CurrentUserId == -1 ? (int?)null : webSecurity.CurrentUserId, null); //while New User  CurrentUserId is -1. so, set it null value.
 
                 }
                 //PropertyInfo createdOn = entity.GetType().GetProperty("CreatedOn");

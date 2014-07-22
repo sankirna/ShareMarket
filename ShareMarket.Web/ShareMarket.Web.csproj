@@ -151,6 +151,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CmsPageController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\SettingController.cs" />
     <Compile Include="Areas\Admin\Filters\AuthorizedUseAttribute.cs" />
@@ -2102,6 +2103,9 @@
     <Content Include="Areas\Admin\Views\Home\Unauthorised.cshtml" />
     <Content Include="Areas\Admin\Views\Setting\List.cshtml" />
     <Content Include="Areas\Admin\Views\Setting\AddEditView.cshtml" />
+    <Content Include="Areas\Admin\Views\CmsPage\AddEditView.cshtml" />
+    <Content Include="Areas\Admin\Views\CmsPage\List.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\EditorTemplates\HtmlEditor.cshtml" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
@@ -2125,7 +2129,9 @@
     <Content Include="Scripts\Share\Url.js" />
     <Content Include="Scripts\tag-it.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>

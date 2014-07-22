@@ -57,6 +57,7 @@
     <Compile Include="Helpers\IRole.cs" />
     <Compile Include="Helpers\IRolePrincipal.cs" />
     <Compile Include="Helpers\IWebSecurity.cs" />
+    <Compile Include="Libs\CmsPageLib.cs" />
     <Compile Include="Libs\GlobalLib.cs" />
     <Compile Include="Libs\HomeLib.cs" />
     <Compile Include="Libs\SettingLib.cs" />

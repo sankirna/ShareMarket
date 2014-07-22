@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseEntity.cs" />
+    <Compile Include="CmsPage.cs" />
     <Compile Include="Enums\MessageTemplateType.cs" />
     <Compile Include="Enums\RoleType.cs" />
     <Compile Include="Enums\UserType.cs" />

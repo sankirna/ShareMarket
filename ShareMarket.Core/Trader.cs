@@ -15,17 +15,5 @@ namespace ShareMarket.Core
 
         public string ExpInStockMarket { get; set; }
 
-        //[NotMapped]
-        //public string StringBirthDate { get; set; }
-        //[NotMapped]
-
-        //public string Password { get; set; }
-        //[NotMapped]
-
-        //public int ExprInStockMarketMm { get; set; }
-        //[NotMapped]
-
-        //public int ExprInStockMarketYy { get; set; }
-
     }
 }

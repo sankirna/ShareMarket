@@ -14,7 +14,7 @@ namespace ShareMarket.Core
     {
         public bool IsActive { get; set; }
         public bool IsDeleted { get; set; }
-        public DateTime CreatedOn { get; set; }
+        public Nullable<DateTime> CreatedOn { get; set; }
         public Nullable<DateTime> UpdatedOn { get; set; }
 
         public int? CreatedByUserId { get; set; }

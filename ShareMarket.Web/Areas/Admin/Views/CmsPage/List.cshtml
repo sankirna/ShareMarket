@@ -1,0 +1,91 @@
+﻿@using ShareMarket.Core
+@using ShareMarket.Web.Areas.Admin.Models
+@model  List<ShareMarket.Core.CmsPage>
+
+@{
+    ViewBag.Title = "List";
+}
+
+@Breadcrumb.SetPageHeader("setting", new List<BreadcrumbModel>()
+    {
+        new BreadcrumbModel() { Name = "Home", Url = Url.Action("Index", "Home") },
+         new BreadcrumbModel() { Name = "Setting", Url = Url.Action("Index", "Setting") }
+    })
+<div class="row-fluid">
+    <div class="span12 responsive" data-tablet="span12 fix-offset" data-desktop="span12">
+        <!-- BEGIN EXAMPLE TABLE PORTLET-->
+        @if (ViewBag.ModelStatus == "insert")
+        {
+            <div class="alert alert-success show">
+                <button class="close" data-dismiss="alert"></button>
+                Message Template is created successfully!
+            </div>
+        }
+        @if (ViewBag.ModelStatus == "update")
+        {
+            <div class="alert alert-success show">
+                <button class="close" data-dismiss="alert"></button>
+                Message Template is updated successfully!
+            </div>
+        }
+        @if (ViewBag.ModelStatus == "delete")
+        {
+            <div class="alert alert-error show">
+                <button class="close" data-dismiss="alert"></button>
+                Message Template is deleted successfully!
+            </div>
+        }
+        <div class="portlet-body">
+            @Breadcrumb.AddButton(Url.Action("AddEditView", "CmsPage", new { id = 0 }))
+            <table class="table table-striped table-bordered table-hover" id="sample_11">
+                <thead>
+                    <tr>
+                        @*<th style="width: 8px;" class="sorting_disabled">
+                                <input type="checkbox" class="group-checkable" data-set="#sample_3 .checkboxes" />
+                            </th>*@
+                        <th class="hidden-480">
+                            @Html.DisplayNameFor(model => model[0].Title)
+                        </th>
+
+
+
+                        <th class="hidden-480"></th>
+                         <th class="hidden-480"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (CmsPage item in Model)
+                    {
+                        <tr class="odd gradeX">
+                            @*<td>
+                                    <input type="checkbox" class="checkboxes" value="1" />
+                                </td>*@
+                            <td class="hidden-480">
+                            @Html.DisplayFor(modelItem => item.Title)
+
+                            @* <td class="hidden-480">
+                                        @Html.DisplayFor(modelItem => item.MetaKeywords)
+                                    </td>*@
+                            <td>
+
+                                @Html.ActionLink("Edit", "AddEditView", new { id = item.Id }, new { @class = "btn mini green-stripe" })
+                            </td>
+                            <td>
+										@Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn mini red-stripe", onclick = "javascript:return confirm('Are you sure want to delete ?');" })
+									</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <!-- END EXAMPLE TABLE PORTLET-->
+    </div>
+</div>
+
+<script>
+    jQuery(document).ready(function () {
+        TableManaged.init();
+    });
+</script>
+
+

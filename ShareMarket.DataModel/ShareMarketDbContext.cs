@@ -27,6 +27,8 @@ namespace ShareMarket.DataAccess
         public DbSet<Roles> Roleses { get; set; }
         public DbSet<UsersRole> UsersRoles { get; set; }
 
+        public DbSet<CmsPage> CmsPages { get; set; }
+
         public DbSet<Trader> Traders { get; set; }
 
         public DbSet<QueuedEmail> QueuedEmails { get; set; }
@@ -55,13 +57,25 @@ namespace ShareMarket.DataAccess
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<Trader>()
-                    .HasRequired(s => s.CreatedByUser)
+                    .HasOptional(s => s.CreatedByUser)
                     .WithMany()
                     .HasForeignKey(x => x.CreatedByUserId)
                     .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Trader>()
-                .HasRequired(s => s.UpdatedByUser)
+                .HasOptional(s => s.UpdatedByUser)
+                .WithMany()
+                .HasForeignKey(x => x.UpdatedByUserId)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<CmsPage>()
+                   .HasOptional(s => s.CreatedByUser)
+                   .WithMany()
+                   .HasForeignKey(x => x.CreatedByUserId)
+                   .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<CmsPage>()
+                .HasOptional(s => s.UpdatedByUser)
                 .WithMany()
                 .HasForeignKey(x => x.UpdatedByUserId)
                 .WillCascadeOnDelete(false);
