@@ -739,3 +739,30 @@ The statement has been terminated.
    at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
    at System.Data.Entity.DbContext.SaveChanges()
    at ShareMarket.BusinessLogic.Repository.DataRepository`1.SaveChanges() in e:\Repository Projects\ShareMarket\Source\ShareMarket.BusinessLogic\Repository\DataRepository.cs:line 383
+Value cannot be null.
+Parameter name: context
+System.ArgumentNullException: Value cannot be null.
+Parameter name: context
+   at Autofac.ResolutionExtensions.ResolveService(IComponentContext context, Service service, IEnumerable`1 parameters)
+   at Autofac.ResolutionExtensions.Resolve(IComponentContext context, Type serviceType, IEnumerable`1 parameters)
+   at Autofac.ResolutionExtensions.Resolve[TService](IComponentContext context, IEnumerable`1 parameters)
+   at Autofac.ResolutionExtensions.Resolve[TService](IComponentContext context)
+   at ShareMarket.BusinessLogic.Libs.TraderLib.GetEntityById(Int32 Id) in e:\Repository Projects\ShareMarket\Source\ShareMarket.BusinessLogic\Libs\TraderLib.cs:line 72
+Value cannot be null.
+Parameter name: context
+System.ArgumentNullException: Value cannot be null.
+Parameter name: context
+   at Autofac.ResolutionExtensions.ResolveService(IComponentContext context, Service service, IEnumerable`1 parameters)
+   at Autofac.ResolutionExtensions.Resolve(IComponentContext context, Type serviceType, IEnumerable`1 parameters)
+   at Autofac.ResolutionExtensions.Resolve[TService](IComponentContext context, IEnumerable`1 parameters)
+   at Autofac.ResolutionExtensions.Resolve[TService](IComponentContext context)
+   at ShareMarket.BusinessLogic.Libs.TraderLib.GetEntityById(Int32 Id) in e:\Repository Projects\ShareMarket\Source\ShareMarket.BusinessLogic\Libs\TraderLib.cs:line 72
+Value cannot be null.
+Parameter name: context
+System.ArgumentNullException: Value cannot be null.
+Parameter name: context
+   at Autofac.ResolutionExtensions.ResolveService(IComponentContext context, Service service, IEnumerable`1 parameters)
+   at Autofac.ResolutionExtensions.Resolve(IComponentContext context, Type serviceType, IEnumerable`1 parameters)
+   at Autofac.ResolutionExtensions.Resolve[TService](IComponentContext context, IEnumerable`1 parameters)
+   at Autofac.ResolutionExtensions.Resolve[TService](IComponentContext context)
+   at ShareMarket.BusinessLogic.Libs.TraderLib.GetEntityById(Int32 Id) in e:\Repository Projects\ShareMarket\Source\ShareMarket.BusinessLogic\Libs\TraderLib.cs:line 72

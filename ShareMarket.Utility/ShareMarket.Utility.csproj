@@ -69,6 +69,12 @@
     <Compile Include="Utilities\StringUtil.cs" />
     <Compile Include="Utilities\WebUtil.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ShareMarket.DataModel\ShareMarket.DataAccess.csproj">
+      <Project>{e97e2804-333e-4c17-b173-2b70616f60a8}</Project>
+      <Name>ShareMarket.DataAccess</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

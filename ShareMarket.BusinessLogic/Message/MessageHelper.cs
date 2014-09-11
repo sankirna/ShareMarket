@@ -11,7 +11,7 @@ namespace ShareMarket.BusinessLogic.Message
 {
     public class MessageHelper
     {
-        private static int SendNotification(MessageTemplate messageTemplate, IEnumerable<MessageToken> tokens, string toEmailAddress, string toName)
+        public static int SendNotification(MessageTemplate messageTemplate, IEnumerable<MessageToken> tokens, string toEmailAddress, string toName)
         {
             using (
                 IDataRepository<QueuedEmail> queuedEmailContext =
@@ -50,7 +50,7 @@ namespace ShareMarket.BusinessLogic.Message
             }
         }
 
-        private static int SendNotification(MessageTemplate messageTemplate, IEnumerable<MessageToken> tokens, string toMobileNumber)
+        public static int SendNotification(MessageTemplate messageTemplate, IEnumerable<MessageToken> tokens, string toMobileNumber)
         {
             using (
                 IDataRepository<QueuedSms> queuedSmsContext =
@@ -80,7 +80,7 @@ namespace ShareMarket.BusinessLogic.Message
         }
 
 
-        private static string GetValidTokenString(string tokenString)
+        public static string GetValidTokenString(string tokenString)
         {
             Regex re = new Regex("[%?]"); //Regular expression includes character which breaks the sms content must be avoided by null value
             tokenString = re.Replace(tokenString, "");

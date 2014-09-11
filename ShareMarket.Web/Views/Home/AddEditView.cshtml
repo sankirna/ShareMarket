@@ -1,14 +1,208 @@
 ﻿@model ShareMarket.BusinessLogic.Models.TraderModel
+<style type="text/css">
+    #templatemo_content_wrapper {
+        width: 964px;
+        float: right;
+    }
 
-<hgroup class="title">
-    <h1>@ViewBag.Title.</h1>
-    <h2>Create a new account.</h2>
-</hgroup>
+    #right-side {
+        width: 1024px;
+        float: left;
+    }
+
+    #left-side {
+        width: 256px;
+        float: left;
+        background-color: #21282E;
+        min-height: 495px;
+        height: auto !important;
+    }
+
+    #templatemo_contentone {
+        width: 964px;
+        height: 100%;
+        text-align: left;
+    }
+
+    .hid-form-cont {
+        float: right;
+        width: 400px;
+        z-index: 999999;
+        margin: 0 10px 0 850px;
+        position: absolute;
+    }
+
+    .hid-form {
+        display: none;
+        height: 120px;
+        width: 100%;
+        background: #218EDE;
+        border-radius: 0px 0px 0px 5px;
+        -moz-border-radius: 0px 0px 0px 5px;
+        -webkit-border-radius: 0px 0px 0px 5px;
+    }
+
+        .hid-form a {
+            color: #ffffff;
+        }
+
+    .form-loader {
+        height: 20px;
+        padding: 1px 8px;
+        background: #218EDE;
+        float: right;
+        width: 70px;
+        position: absolute;
+        text-align: center;
+        margin-left: 314px;
+        border-radius: 0px 0px 5px 5px;
+        -moz-border-radius: 0px 0px 5px 5px;
+        -webkit-border-radius: 0px 0px 5px 5px;
+        color: #fff;
+    }
+
+    .hid-form input[type="text"], input[type="password"] {
+        border-radius: 3px;
+        -moz-border-radius: 3px;
+        -webkit-border-radius: 3px;
+        border: 1px solid #21282E;
+        height: 18px;
+        padding: 2px 4px;
+        width: 145px;
+    }
+
+    .hid-form input[type="submit"] {
+        border-radius: 3px;
+        -moz-border-radius: 3px;
+        -webkit-border-radius: 3px;
+        background: #1A1E23;
+        color: #FFF;
+        border: none;
+        padding: 4px 8px;
+    }
+
+        .hid-form input[type="submit"]:hover {
+            border-radius: 3px;
+            -moz-border-radius: 3px;
+            -webkit-border-radius: 3px;
+            background: #333;
+            color: #FFF;
+            border: none;
+            padding: 4px 8px;
+            cursor: pointer;
+        }
+
+    .form-loader:hover {
+        background: #1A1E23;
+        color: #218EDE;
+        cursor: pointer;
+    }
+
+    #templatemo_footer_wrapper {
+        clear: both;
+        width: 100%;
+        background: #1A1E23;
+    }
+
+
+    #templatemo_footer {
+        width: 1220px;
+        float: left;
+        clear: both;
+        height: auto;
+        background-color: #1a1e23;
+        padding: 50px 30px;
+        margin: 0 auto;
+        color: #725e91;
+        border-top: 5px solid #fff;
+    }
+
+    #footcol4 {
+        width: 244px;
+        float: left;
+        text-align: center;
+    }
+
+    #footer_copy {
+        width: 1220px;
+        float: left;
+        clear: both;
+        height: auto;
+        background-color: #21282E;
+        padding: 25px 30px;
+        margin: 0 auto;
+        color: #725e91;
+    }
+
+    #templatemo_footer a {
+        color: #b0b6be;
+        font-weight: normal;
+        text-decoration: none;
+    }
+
+        #templatemo_footer a:hover {
+            color: #71A7D3;
+            text-decoration: underline;
+        }
+
+    #templatemo_footer .footer_menu {
+        margin: 0 0 10px 0;
+        padding: 0px;
+        list-style: none;
+    }
+
+    .footer_menu li {
+        margin: 0px;
+        padding: 0 20px 0 0;
+        display: inline;
+    }
+
+        .footer_menu li a {
+            color: #ffffff;
+        }
+
+    .footer_menu .last_menu {
+        border: none;
+    }
+
+    .readmorespan {
+        border-radius: 3px;
+        -moz-border-radius: 3px;
+        -webkit-border-radius: 3px;
+        background: #21282E;
+        color: #8F9396;
+        border: 2px solid #8F9396;
+        padding: 10px 20px;
+        text-transform: uppercase;
+        float: left;
+        cursor: pointer;
+        font-weight: bold;
+        -webkit-transition: box-shadow 0.25s ease;
+        transition: box-shadow 0.25s ease;
+        -webkit-transition: all 0.25s ease;
+        transition: all 0.25s ease;
+        margin: 0 34%;
+        margin-top: 15px;
+    }
+
+        .readmorespan:hover {
+            border-radius: 3px;
+            -moz-border-radius: 3px;
+            -webkit-border-radius: 3px;
+            background: #8F9396;
+            color: #21282E;
+            border: 2px solid #8F9396;
+            padding: 10px 20px;
+            text-transform: uppercase;
+            font-weight: bold;
+            float: left;
+        }
+</style>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    @Html.ValidationSummary()
+  
     @Html.HiddenFor(x => x.UserProfile.UpdatedOn)
     @Html.HiddenFor(x => x.UserProfile.Id)
     @Html.HiddenFor(x => x.UserProfile.UserType)
@@ -21,35 +215,229 @@
     @Html.HiddenFor(x => x.CreatedByUserId)
     @Html.HiddenFor(x => x.UpdatedOn)
     @Html.HiddenFor(x => x.UpdatedByUserId)
-    <fieldset>
-        <legend>Registration Form</legend>
-        <ol>
-            <li>
-                @Html.LabelFor(m => m.UserProfile.UserName)
-                @Html.TextBoxFor(m => m.UserProfile.UserName)
-            </li>
-            <li>
-                @Html.LabelFor(m => m.UserProfile.Password)
-                @Html.PasswordFor(m => m.UserProfile.Password)
-            </li>
-            <li>
-                @Html.LabelFor(m => m.StringBirthDate)
-                @Html.TextBoxFor(m => m.StringBirthDate)
-            </li>
-            <li>
-                @Html.LabelFor(m => m.ExprInStockMarketMm)
-                @Html.TextBoxFor(m => m.ExprInStockMarketMm)
-            </li>
-            <li>
-                @Html.LabelFor(m => m.ExprInStockMarketYy)
-                @Html.TextBoxFor(m => m.ExprInStockMarketYy)
-            </li>
+    <div id="left-side">
+        <div class="menu-left" style="margin-top: 40px">
+            <a href="#AdvisoryMarketplace">Advisory Marketplace</a>
+        </div>
+        <div class="active menu-left">
+            <a href="#BrokingServices">Register User</a>
+        </div>
+        <div class="menu-left">
+            <a href="#BrokingServices">Broking Services</a>
+        </div>
+        <div class="menu-left">
+            <a href="#BrokingServices">Broking Services</a>
+        </div>
+        <div class="menu-left">
+            <a href="#BrokingServices">Broking Services</a>
+        </div>
+    </div>
+    <div id="right-side">
+        <!-- start -->
+        <div id="templatemo_content_wrapper">
+            <!-- BEGIN WRAPPER DIV -->
+            <div id="wrapper">
 
-        </ol>
-        <input type="submit" value="Register" />
-    </fieldset>
-}
+                <h3 id="register-tab" class="active" style="margin-bottom: 0px;">Register</h3>
+                <h3 id="sign-in-tab" style="margin-bottom: 0px;">Sign In</h3>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
+                <!-- BEGIN FORM SECTION -->
+                <ul id="form-section">
+
+                    <!-- BEGIN REGISTER FORM -->
+                    <form class="register-form" action="" method="post">
+                        <li style="width: 150px;">
+                            <label>
+                                <span>I am</span>
+                                <p style="font-size: 13px; border: none;">
+                                    <input type="radio" name="sinuptype" style="width: 25px;" checked="checked" value="Trader" />Trader&nbsp;&nbsp;<input type="radio" name="sinuptype" style="width: 25px;" value="Analyst" />Analyst
+                                </p>
+                            </label>
+                        </li>
+                        <p style="margin: -10px auto 10px auto; padding: 0px; height: 1px;">&nbsp;</p>
+                        <li>
+                            <label class="left-column">
+                                <span>@Html.LabelFor(m => m.FirstName)*</span>
+                                @Html.TextBoxFor(m => m.FirstName, new { placeholder = "Please enter your first name" })
+                            </label>
+                            <label class="right-column">
+                                <span>@Html.LabelFor(m => m.LastName)*</span>
+                                @Html.TextBoxFor(m => m.LastName, new { placeholder = "Please enter your last name" })
+
+                            </label>
+                        </li>
+                        <div style="clear: both;"></div>
+                        <li>
+                            <label>
+
+                                <span>@Html.LabelFor(m => m.StringBirthDate)*</span>
+                                @Html.TextBoxFor(m => m.StringBirthDate, new { placeholder = "Please Enter Date of Birth Eg. Month / Year" })
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+
+                                <span>@Html.LabelFor(m => m.UserProfile.UserName)*</span>
+                                @Html.TextBoxFor(m => m.UserProfile.UserName, new { placeholder = "Please Enter Date of Birth Eg. Month / Year" })
+                            </label>
+
+                        </li>
+                        <li>
+                            <label>
+                                <span style="float: left; paddding: 5px;">@Html.LabelFor(m => m.PhoneNumber)*</span>
+                                @Html.TextBoxFor(m => m.PhoneNumber, new { placeholder = "Please enter your Mobile Number" })
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+
+                                <span>@Html.LabelFor(m => m.UserProfile.Password)*</span>
+                                @Html.TextBoxFor(m => m.UserProfile.Password, new { placeholder = "Please enter your password" })
+
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <span>@Html.LabelFor(m => m.UserProfile.ConfirmPassword)*</span>
+                                @Html.TextBoxFor(m => m.UserProfile.ConfirmPassword, new { placeholder = "Please Re-enter Your Password" })
+
+                            </label>
+                        </li>
+                        <p><span class="register-numbering-text"></span></p>
+                        <div id="addvance">
+                            <li>
+                                <label>
+                                    <span>PAN Number*</span>
+                                    <input type="text" style="width: 30px; padding-right: 0px;" name="address" tabindex="5" pattern="[a-zA-Z0-9. - , ]{10,}" title="It must contain letters and/or separators and a length of minimum 10 characters !" required>
+                                    <input type="text" style="width: 30px; padding-right: 0px;" name="address" tabindex="5" pattern="[a-zA-Z0-9. - , ]{10,}" title="It must contain letters and/or separators and a length of minimum 10 characters !" required>
+                                    <input type="text" style="width: 30px; padding-right: 0px;" name="address" tabindex="5" pattern="[a-zA-Z0-9. - , ]{10,}" title="It must contain letters and/or separators and a length of minimum 10 characters !" required>
+                                    <input type="text" style="width: 30px; padding-right: 0px;" name="address" tabindex="5" pattern="[a-zA-Z0-9. - , ]{10,}" title="It must contain letters and/or separators and a length of minimum 10 characters !" required>
+                                    <input type="text" style="width: 30px; padding-right: 0px;" name="address" tabindex="5" pattern="[a-zA-Z0-9. - , ]{10,}" title="It must contain letters and/or separators and a length of minimum 10 characters !" required>
+                                    <input type="text" style="width: 30px; padding-right: 0px;" name="address" tabindex="5" pattern="[a-zA-Z0-9. - , ]{10,}" title="It must contain letters and/or separators and a length of minimum 10 characters !" required>
+                                    <input type="text" style="width: 30px; padding-right: 0px;" name="address" tabindex="5" pattern="[a-zA-Z0-9. - , ]{10,}" title="It must contain letters and/or separators and a length of minimum 10 characters !" required>
+                                    <input type="text" style="width: 30px; padding-right: 0px;" name="address" tabindex="5" pattern="[a-zA-Z0-9. - , ]{10,}" title="It must contain letters and/or separators and a length of minimum 10 characters !" required>
+                                    <input type="text" style="width: 30px; padding-right: 0px;" name="address" tabindex="5" pattern="[a-zA-Z0-9. - , ]{10,}" title="It must contain letters and/or separators and a length of minimum 10 characters !" required>
+                                    <input type="text" style="width: 30px; padding-right: 0px;" name="address" tabindex="5" pattern="[a-zA-Z0-9. - , ]{10,}" title="It must contain letters and/or separators and a length of minimum 10 characters !" required>
+                                </label>
+                            </li>
+                            <li>
+                                <p style="font-size: 13px; font-weight: normal; border-top: 1px dashed #2D3538; border-bottom: none; padding-top: 15px;">
+                                    <span>Please provide us the details about your bank account for which you wish to receive the payment of revenue earned by you.</span>
+                                </p>
+                                <label>
+                                    <span>Name*</span>
+                                    <input type="text" name="address" tabindex="5" pattern="[a-zA-Z0-9. - , ]{10,}" placeholder="Please enter your PAN Number" title="It must contain letters and/or separators and a length of minimum 10 characters !" required>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <span>Bank Account Number*</span>
+                                    <input type="text" name="address" tabindex="5" pattern="[a-zA-Z0-9. - , ]{10,}" placeholder="Please enter your Bank Account Number" title="It must contain letters and/or separators and a length of minimum 10 characters !" required>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <span>Confirm Bank Account Number*</span>
+                                    <input type="text" name="address" tabindex="5" pattern="[a-zA-Z0-9. - , ]{10,}" placeholder="Please re-enter your Bank Account Number" title="It must contain letters and/or separators and a length of minimum 10 characters !" required>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <span>IFS Code*</span>
+                                    <input type="text" style="width: 30px; padding-right: 0px;" name="address" tabindex="5" pattern="[a-zA-Z0-9. - , ]{10,}" title="It must contain letters and/or separators and a length of minimum 10 characters !" required>
+                                    <input type="text" style="width: 30px; padding-right: 0px;" name="address" tabindex="5" pattern="[a-zA-Z0-9. - , ]{10,}" title="It must contain letters and/or separators and a length of minimum 10 characters !" required>
+                                    <input type="text" style="width: 30px; padding-right: 0px;" name="address" tabindex="5" pattern="[a-zA-Z0-9. - , ]{10,}" title="It must contain letters and/or separators and a length of minimum 10 characters !" required>
+                                    <input type="text" style="width: 30px; padding-right: 0px;" name="address" tabindex="5" pattern="[a-zA-Z0-9. - , ]{10,}" title="It must contain letters and/or separators and a length of minimum 10 characters !" required>
+                                    <input type="text" style="width: 30px; padding-right: 0px;" name="address" tabindex="5" pattern="[a-zA-Z0-9. - , ]{10,}" title="It must contain letters and/or separators and a length of minimum 10 characters !" required>
+                                    <input type="text" style="width: 30px; padding-right: 0px;" name="address" tabindex="5" pattern="[a-zA-Z0-9. - , ]{10,}" title="It must contain letters and/or separators and a length of minimum 10 characters !" required>
+                                    <input type="text" style="width: 30px; padding-right: 0px;" name="address" tabindex="5" pattern="[a-zA-Z0-9. - , ]{10,}" title="It must contain letters and/or separators and a length of minimum 10 characters !" required>
+                                    <input type="text" style="width: 30px; padding-right: 0px;" name="address" tabindex="5" pattern="[a-zA-Z0-9. - , ]{10,}" title="It must contain letters and/or separators and a length of minimum 10 characters !" required>
+                                    <input type="text" style="width: 30px; padding-right: 0px;" name="address" tabindex="5" pattern="[a-zA-Z0-9. - , ]{10,}" title="It must contain letters and/or separators and a length of minimum 10 characters !" required>
+                                    <input type="text" style="width: 30px; padding-right: 0px;" name="address" tabindex="5" pattern="[a-zA-Z0-9. - , ]{10,}" title="It must contain letters and/or separators and a length of minimum 10 characters !" required>
+                                    <input type="text" style="width: 30px; padding-right: 0px;" name="address" tabindex="5" pattern="[a-zA-Z0-9. - , ]{10,}" title="It must contain letters and/or separators and a length of minimum 10 characters !" required>
+                                </label>
+                            </li>
+                            <div style="clear: both;"></div>
+                            <p><span class="register-numbering-text"></span></p>
+                            <li>
+                                <label>
+                                    <span>NOTE:</span>
+                                    <p style="font-size: 13px; font-weight: normal;">The information provided above by you will be kept confidential.</p>
+                                    <p style="font-size: 13px; font-weight: normal;">This information will be kept confidential and will be used solely for payment purpose to TF Analyst from Tradalyst Financial.</p>
+                                    <p style="font-size: 13px; font-weight: normal;">Tradalyst Financial does not take any responsibility in case of occurrence of any problem due to incorrectness of the above information provided by you.</p>
+                                </label>
+                            </li>
+                        </div>
+                        <li>
+                            <input type="checkbox" name="vehicle" style="width: 25px;" value="i accept">I accept the terms and conditions
+                        </li>
+                        <div style="clear: both;"></div>
+                        <li>
+                            <button name="submit"  type="submit" id="create-account-submit">Create Account</button>
+                        </li>
+                    </form>
+                    <!-- END OF REGISTER FORM -->
+
+                    <!-- BEGIN SIGN IN FORM -->
+                    <form class="sign-in-form" action="" method="post">
+                        <li style="width: 150px;">
+                            <label>
+                                <span>I am</span>
+                                <p style="font-size: 13px; border: none;">
+                                    <input type="radio" name="logintype" style="width: 25px;" checked="checked" value="Trader" />Trader&nbsp;&nbsp;<input type="radio" name="logintype" style="width: 25px;" value="Analyst" />Analyst
+                                </p>
+                            </label>
+                        </li>
+                        <p style="margin: -10px auto 10px auto; padding: 0px; height: 1px;">&nbsp;</p>
+                        <li>
+                            <label>
+                                <span>Username</span>
+                                <input placeholder="Please enter your username" name="username" id="name" pattern="[a-zA-Z0-9]{6,}" type="text" tabindex="1" title="It must contain the username that you have chosen at registration" required autofocus>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <span>Password</span>
+                                <input placeholder="Please enter your password" name="password" pattern=".{6,}" style="height: 33px;" type="password" tabindex="2" title="It must contain the password that you have chosen at registration" required>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <p><a href="#" style="font-size: 13px;">Forgot Password?</a></p>
+                            </label>
+                        </li>
+                        <li>
+                            <button name="sign-in-submit" type="submit" id="sign-in-submit">Sign In</button>
+                        </li>
+                        <div style="clear: both;"></div>
+                    </form>
+                    <!-- END OF SIGN IN FORM -->
+
+                </ul>
+                <!-- END OF FORM SECTION -->
+            </div>
+            <!-- END OF WRAPPER DIV -->
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#addvance').css('display', 'none');
+            $('.form-loader').click(function () {
+                $('.hid-form').slideToggle();
+            });
+
+            $("input[type='radio']").click(function () {
+                if ($(this).val() == 'Trader') {
+                    $('#addvance').hide(1000);
+                    $('#addvance').css('display', 'none');
+                }
+                if ($(this).val() == 'Analyst') {
+                    $('#addvance').show(1000);
+                    $('#addvance').css('display', 'block');
+                }
+            });
+
+        });
+    </script>
 }

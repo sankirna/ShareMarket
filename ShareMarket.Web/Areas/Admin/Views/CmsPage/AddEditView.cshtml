@@ -1,4 +1,5 @@
-﻿@using ShareMarket.Web.Areas.Admin.Models
+﻿@using ShareMarket.Core.Enums
+@using ShareMarket.Web.Areas.Admin.Models
 @model  ShareMarket.Core.CmsPage
 
 
@@ -44,7 +45,30 @@
                             @Html.ValidationMessageFor(model => model.Body)
                         </div>
                     </div>
-                        
+                    <div class="control-group">
+                        <label class="control-label">
+                            @Html.DisplayNameFor(model => model.UrlLink)<span class="required">*</span></label>
+                        <div class="controls">
+                            @Html.TextBoxFor(model => model.UrlLink)
+                            @Html.ValidationMessageFor(model => model.UrlLink)
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">
+                            @Html.DisplayNameFor(model => model.Seo)<span class="required">*</span></label>
+                        <div class="controls">
+                            @Html.TextBoxFor(model => model.Seo)
+                            @Html.ValidationMessageFor(model => model.Seo)
+                        </div>
+                    </div>@*
+                    <div class="control-group">
+                        <label class="control-label">
+                            @Html.DisplayNameFor(model => model.LinkTargetType)<span class="required">*</span></label>
+                        <div class="controls">
+                            @Html.DropDownListFor(model => model.LinkTargetType)
+                            @Html.ValidationMessageFor(model => model.LinkTargetType)
+                        </div>
+                    </div>*@
                     <div class="form-actions">
                         <button type="submit" class="btn blue">Submit</button>
                         <button type="reset" class="btn" onclick="window.location.href = '@Url.Action("List", "CmsPage")'">Cancel</button>

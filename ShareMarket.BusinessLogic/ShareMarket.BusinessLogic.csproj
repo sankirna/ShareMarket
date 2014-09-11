@@ -63,10 +63,12 @@
     <Compile Include="Libs\SettingLib.cs" />
     <Compile Include="Libs\TraderLib.cs" />
     <Compile Include="Libs\UserLib.cs" />
+    <Compile Include="Message\CustomerMessageHelper.cs" />
     <Compile Include="Message\EmailSender.cs" />
     <Compile Include="Message\MessageHelper.cs" />
     <Compile Include="Message\MessageToken.cs" />
     <Compile Include="Message\MessageTokenizer.cs" />
+    <Compile Include="Message\MessageTokenProvider.cs" />
     <Compile Include="Message\QueuedMessagesSendTask.cs" />
     <Compile Include="Message\QueuedSmsSendTask.cs" />
     <Compile Include="Message\SmsSender.cs" />

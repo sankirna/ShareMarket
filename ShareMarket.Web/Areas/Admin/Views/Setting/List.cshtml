@@ -50,7 +50,7 @@
 
 
                         <th class="hidden-480"></th>
-                         <th class="hidden-480"></th>
+                         
                     </tr>
                 </thead>
                 <tbody>
@@ -63,16 +63,13 @@
                             <td class="hidden-480">
                             @Html.DisplayFor(modelItem => item.Name)
 
-                            @* <td class="hidden-480">
-                                        @Html.DisplayFor(modelItem => item.MetaKeywords)
-                                    </td>*@
+                          </td>
                             <td>
 
                                 @Html.ActionLink("Edit", "AddEditView", new { id = item.Id }, new { @class = "btn mini green-stripe" })
+                                	@Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn mini red-stripe", onclick = "javascript:return confirm('Are you sure want to delete ?');" })
                             </td>
-                            <td>
-										@Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn mini red-stripe", onclick = "javascript:return confirm('Are you sure want to delete ?');" })
-									</td>
+                         
                         </tr>
                     }
                 </tbody>
@@ -81,6 +78,9 @@
         <!-- END EXAMPLE TABLE PORTLET-->
     </div>
 </div>
+
+@Styles.Render("~/Content/assets/DataTablecss")
+@Scripts.Render("~/Content/assets/DataTable")
 
 <script>
     jQuery(document).ready(function () {

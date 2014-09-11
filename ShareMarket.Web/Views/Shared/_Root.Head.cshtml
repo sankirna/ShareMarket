@@ -1,0 +1,281 @@
+﻿<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Tradalyst | Home</title>
+    <meta name="keywords" content="Tradalyst | Home" />
+    <meta name="description" content="Tradalyst | Home" />
+        <link rel="stylesheet" type="text/css" href="~/Content/tradalysyTheme/css/print.css" media="print">
+<link rel="stylesheet" type="text/css" href="~/Content/tradalysyTheme/css/login.css" media="screen, projection">
+    <link href="~/Content/tradalysyTheme/css/templatemo_style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/tradalysyTheme/css/style2.css" />
+    <link href="~/Content/tradalysyTheme/css/templatemo_style.css" rel="stylesheet" type="text/css" />
+
+    @*<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>*@
+    <noscript>
+        <link rel="stylesheet" type="text/css" href="~/Content/tradalysyTheme/css/nojs.css" />
+    </noscript>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/modernizr")
+    <script src="~/Content/tradalysyTheme/js/modernizr.custom.28468.js"></script>
+    <script src="~/Content/tradalysyTheme/js/jquery.smoothScroll.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.cslider.js"></script>
+    
+    <style type="text/css">
+        .hid-form-cont {
+            float: right;
+            width: 400px;
+            z-index: 999999;
+            margin: 0 10px 0 850px;
+            position: absolute;
+        }
+
+        .hid-form {
+            display: none;
+            height: 120px;
+            width: 100%;
+            background: #218EDE;
+            border-radius: 0px 0px 0px 5px;
+            -moz-border-radius: 0px 0px 0px 5px;
+            -webkit-border-radius: 0px 0px 0px 5px;
+        }
+
+            .hid-form a {
+                color: #ffffff;
+            }
+
+        .form-loader {
+            height: 20px;
+            padding: 1px 8px;
+            background: #218EDE;
+            float: right;
+            width: 70px;
+            position: absolute;
+            text-align: center;
+            margin-left: 314px;
+            border-radius: 0px 0px 5px 5px;
+            -moz-border-radius: 0px 0px 5px 5px;
+            -webkit-border-radius: 0px 0px 5px 5px;
+            color: #fff;
+        }
+
+        .hid-form input[type="text"], input[type="password"] {
+            border-radius: 3px;
+            -moz-border-radius: 3px;
+            -webkit-border-radius: 3px;
+            border: 1px solid #21282E;
+            height: 18px;
+            padding: 2px 4px;
+            width: 145px;
+        }
+
+        .hid-form input[type="submit"] {
+            border-radius: 3px;
+            -moz-border-radius: 3px;
+            -webkit-border-radius: 3px;
+            background: #1A1E23;
+            color: #FFF;
+            border: none;
+            padding: 4px 8px;
+        }
+
+            .hid-form input[type="submit"]:hover {
+                border-radius: 3px;
+                -moz-border-radius: 3px;
+                -webkit-border-radius: 3px;
+                background: #333;
+                color: #FFF;
+                border: none;
+                padding: 4px 8px;
+                cursor: pointer;
+            }
+
+        .form-loader:hover {
+            background: #1A1E23;
+            color: #218EDE;
+            cursor: pointer;
+        }
+
+        #templatemo_footer_wrapper {
+            clear: both;
+            width: 100%;
+            background: #1A1E23;
+        }
+
+
+        #templatemo_footer {
+            width: 1220px;
+            float: left;
+            clear: both;
+            height: auto;
+            background-color: #1a1e23;
+            padding: 50px 30px;
+            margin: 0 auto;
+            color: #725e91;
+            border-top: 5px solid #fff;
+        }
+
+        #footcol4 {
+            width: 244px;
+            float: left;
+            text-align: center;
+        }
+
+        #footer_copy {
+            width: 1220px;
+            float: left;
+            clear: both;
+            height: auto;
+            background-color: #21282E;
+            padding: 25px 30px;
+            margin: 0 auto;
+            color: #725e91;
+        }
+
+        #templatemo_footer a {
+            color: #b0b6be;
+            font-weight: normal;
+            text-decoration: none;
+        }
+
+            #templatemo_footer a:hover {
+                color: #71A7D3;
+                text-decoration: underline;
+            }
+
+        #templatemo_footer .footer_menu {
+            margin: 0 0 10px 0;
+            padding: 0px;
+            list-style: none;
+        }
+
+        .footer_menu li {
+            margin: 0px;
+            padding: 0 20px 0 0;
+            display: inline;
+        }
+
+            .footer_menu li a {
+                color: #ffffff;
+            }
+
+        .footer_menu .last_menu {
+            border: none;
+        }
+
+        .readmorespan {
+            border-radius: 3px;
+            -moz-border-radius: 3px;
+            -webkit-border-radius: 3px;
+            background: #21282E;
+            color: #8F9396;
+            border: 2px solid #8F9396;
+            padding: 10px 20px;
+            text-transform: uppercase;
+            float: left;
+            cursor: pointer;
+            font-weight: bold;
+            -webkit-transition: box-shadow 0.25s ease;
+            transition: box-shadow 0.25s ease;
+            -webkit-transition: all 0.25s ease;
+            transition: all 0.25s ease;
+            margin: 0 34%;
+            margin-top: 15px;
+        }
+
+            .readmorespan a {
+                color: #b0b6be;
+                text-decoration: none;
+            }
+
+            .readmorespan:hover a {
+                color: #21282E;
+                text-decoration: none;
+            }
+
+            .readmorespan:hover {
+                border-radius: 3px;
+                -moz-border-radius: 3px;
+                -webkit-border-radius: 3px;
+                background: #8F9396;
+                color: #21282E;
+                border: 2px solid #8F9396;
+                padding: 10px 20px;
+                text-transform: uppercase;
+                font-weight: bold;
+                float: left;
+            }
+
+        #animatedElement {
+            visibility: hidden;
+        }
+
+        #animatedElement1 {
+            visibility: hidden;
+        }
+
+        #animatedElement2 {
+            visibility: hidden;
+        }
+
+        #animatedElement3 {
+            visibility: hidden;
+        }
+
+        .active {
+            color: #fff;
+            font-size: bold;
+            background: #1A1E23;
+            webkit-transition: padding 0.50s ease, color 0.50s ease, background-color 0.50s ease, box-shadow 0.50s ease;
+            transition: padding 0.50s ease, color 0.50s ease, background-color 0.50s ease, box-shadow 0.50s ease;
+        }
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.form-loader').click(function () {
+                $('.hid-form').slideToggle();
+            });
+            $('#templatemo_menu').click(function () {
+                $('#templatemo_menu').addClass("active");
+            });
+
+        });
+    </script>
+
+    <script>
+        $(window).scroll(function () {
+            $('#animatedElement').each(function () {
+                var imagePos = $(this).offset().top;
+                var topOfWindow = $(window).scrollTop();
+                if (imagePos < topOfWindow + 400) {
+                    $(this).addClass("slideRight");
+                }
+            });
+
+            $('#animatedElement1').each(function () {
+                var imagePos = $(this).offset().top;
+                var topOfWindow = $(window).scrollTop();
+                if (imagePos < topOfWindow + 400) {
+                    $(this).addClass("slideLeft");
+                }
+            });
+
+            $('#animatedElement2').each(function () {
+                var imagePos = $(this).offset().top;
+                var topOfWindow = $(window).scrollTop();
+                if (imagePos < topOfWindow + 400) {
+                    $(this).addClass("slideRight");
+                }
+            });
+
+            $('#animatedElement3').each(function () {
+                var imagePos = $(this).offset().top;
+                var topOfWindow = $(window).scrollTop();
+                if (imagePos < topOfWindow + 400) {
+                    $(this).addClass("slideLeft");
+                }
+            });
+
+        });
+    </script>
+
+</head>

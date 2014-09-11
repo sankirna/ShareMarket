@@ -1,9 +1,6 @@
-﻿using System;
+﻿using ShareMarket.Core.Enums;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ShareMarket.Core
 {
@@ -26,5 +23,8 @@ namespace ShareMarket.Core
 
         [ForeignKey("ParentId")]
         public virtual CmsPage ParentCmsPage { get; set; }
+
+        [NotMapped]
+        public List<CmsPage> CmsPages { get; set; }
     }
 }

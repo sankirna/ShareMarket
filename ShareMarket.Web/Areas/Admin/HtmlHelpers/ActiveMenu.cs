@@ -18,7 +18,7 @@ namespace ShareMarket.Web.Areas.Admin.HtmlHelpers
             string currentAction = helper.ViewContext.Controller.ValueProvider.GetValue("action").RawValue.ToString(); // Get Action 
 
             // Matches Controller and Action
-            if (currentController == controller && currentAction == action)
+            if (currentController == controller )
             {
                 currentClass = "active";
             }

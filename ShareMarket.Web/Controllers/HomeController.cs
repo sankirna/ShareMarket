@@ -10,23 +10,17 @@ using ShareMarket.Core;
 
 namespace ShareMarket.Web.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         #region "Private Member(s)"
-
-        private IComponentContext _context;
 
         #endregion
 
         #region "Constructor(s)"
 
-        /// <summary>
-        /// Public Constructor.
-        /// </summary>
-        /// <param name="context">IComponentContext</param>
-        public HomeController(IComponentContext context)
+        public HomeController(IComponentContext componentContext)
+            : base(componentContext)
         {
-            _context = context;
         }
 
         #endregion

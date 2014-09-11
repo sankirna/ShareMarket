@@ -108,8 +108,7 @@ namespace ShareMarket.Web
 "~/Areas/Admin/Content/assets/css/style-responsive.css",
 "~/Areas/Admin/Content/assets/css/themes/default.css",
 "~/Areas/Admin/Content/assets/plugins/uniform/css/uniform.default.css"
-                 
-                   ));
+                 ));
 
             bundles.Add(new ScriptBundle("~/Content/assets/js").Include(
 "~/Areas/Admin/Content/assets/plugins/jquery-ui/jquery-ui-1.10.1.custom.min.js",
@@ -126,9 +125,29 @@ namespace ShareMarket.Web
          ));
 
 
+            #region Jquery Data Table
+
+            bundles.Add(new StyleBundle("~/Content/assets/DataTablecss").Include(
+                  "~/Areas/Admin/Content/assets/plugins/data-tables/DT_bootstrap.css"
+                    ));
+
+            bundles.Add(new ScriptBundle("~/Content/assets/DataTable").Include(
+"~/Areas/Admin/Content/assets/plugins/data-tables/jquery.dataTables.js",
+"~/Areas/Admin/Content/assets/plugins/data-tables/DT_bootstrap.js",
+"~/Areas/Admin/Content/assets/scripts/table-managed.js"
+ ));
+            #endregion
+
+            #region Ck editor
+
+               bundles.Add(new ScriptBundle("~/Content/assets/ckeditorjs").Include(
+"~/Areas/Admin/Content/assets/plugins/ckeditor/ckeditor.js"
+ ));
+            #endregion
+
             #endregion "Style"
 
-      
+
 
             BundleTable.EnableOptimizations = false;
 

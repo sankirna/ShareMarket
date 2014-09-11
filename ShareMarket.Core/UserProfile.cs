@@ -31,5 +31,8 @@ namespace ShareMarket.Core
         [NotMapped]
         public string Password { get; set; }
 
+        [NotMapped]
+        public string ConfirmPassword { get; set; }
+
     }
 }
